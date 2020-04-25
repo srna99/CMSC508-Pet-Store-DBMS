@@ -1,3 +1,18 @@
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+th, td {
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
 <?php
 
 require_once('connection.php');
@@ -8,7 +23,7 @@ setlocale(LC_MONETARY, 'en_US');
 $stmt = $conn->prepare('select p_id, pet_name, birthdate, price, available, store from Pet order by p_id;');
 $stmt->execute();
 
-echo "<table style='border: solid 1px black;'>";
+echo "<table>";
 echo "<thead><tr>
     <th>ID</th>
     <th>Pet name</th>
@@ -44,3 +59,6 @@ echo "</tbody>";
 echo "</table>";
 
 ?>
+
+</body>
+</html>
