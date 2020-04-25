@@ -6,6 +6,10 @@
             	border-collapse: collapse;
             }
             
+            table {
+                margin-bottom: 30px;
+            }
+            
             th {
                 padding: 10px;
             }
