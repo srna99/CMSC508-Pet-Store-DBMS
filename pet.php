@@ -49,7 +49,7 @@
         
         while ($row = $stmt->fetch()) {
             echo "<tr><td>$row[p_id]</td>
-            <th>$row[animal]</th>";
+            <td>$row[animal]</td>";
         
             if ($row["pet_name"] == null || $row["pet_name"] == "") {
                 echo '<td>No name</td>';
