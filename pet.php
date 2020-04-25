@@ -69,6 +69,7 @@
         echo "</table>";
         
         ?>
-
+        
+		<a href="index.php">Back to index</a>
 	</body>
 </html>
