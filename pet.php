@@ -1,14 +1,13 @@
 <html>
 	<head>
 		<style>
-            table, td {
+            table, th, td {
             	border: 1px solid black;
-            	padding: 3px;
+            	border-collapse: collapse;
             }
             
             td {
-                border: 1px solid black;
-                padding: 7px;
+                padding: 10px;
                 text-align: right;
             }
         </style>
