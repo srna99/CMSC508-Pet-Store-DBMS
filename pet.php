@@ -10,13 +10,11 @@
                 margin-bottom: 30px;
             }
             
-            th {
-                padding: 10px;
-            }
-            
-            td {
-                padding: 10px;
-                text-align: left;
+            th, td {
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 5px;
+                padding-bottom: 5px;
             }
             
             h1 {
