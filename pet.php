@@ -6,6 +6,10 @@
             	border-collapse: collapse;
             }
             
+            th {
+                padding: 10px;
+            }
+            
             td {
                 padding: 10px;
                 text-align: right;
