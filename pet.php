@@ -14,10 +14,16 @@
                 padding: 10px;
                 text-align: right;
             }
+            
+            h1 {
+                margin-top: 0.8em;
+            }
         </style>
 	</head>
+	
 	<body>
-
+		<h1>List of All Pets</h1>
+	
         <?php
         require_once ('connection.php');
         
