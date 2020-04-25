@@ -4,7 +4,7 @@
 </head>
 <body>
 	<ul>
-		<li><a href="employees.php">List all employees</a></li>
+		<li><a href="pet.php">List all pets</a></li>
 	</ul>
 </body>
 </html>
