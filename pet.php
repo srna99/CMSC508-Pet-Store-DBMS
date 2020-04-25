@@ -16,7 +16,7 @@
             
             td {
                 padding: 10px;
-                text-align: right;
+                text-align: left;
             }
             
             h1 {
