@@ -20,13 +20,12 @@ echo "<thead><tr>
 echo "<tbody>";
 
 while ($row = $stmt->fetch()) {
-    echo "<tr><
-    td>$row[p_id]</td>";
+    echo "<tr><td>$row[p_id]</td>";
         
     if ($row["pet_name"] == null || $row["pet_name"] == "") {
        echo '<td>No name</td>'; 
     } else { 
-       echo "<td>" . $row["name"] . "</td>";
+       echo "<td>" . $row["pet_name"] . "</td>";
     }
     
     if ($row["birthdate"] == null) {
