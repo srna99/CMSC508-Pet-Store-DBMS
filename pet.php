@@ -32,12 +32,13 @@
         setlocale(LC_MONETARY, 'en_US');
         
         // Retrieve list of employees
-        $stmt = $conn->prepare('select p_id, pet_name, birthdate, price, available, store from Pet order by p_id;');
+        $stmt = $conn->prepare('select p_id, animal, pet_name, birthdate, price, available, store from Pet order by p_id;');
         $stmt->execute();
         
         echo "<table>";
         echo "<thead><tr>
             <th>ID</th>
+            <th>Animal</th>
             <th>Pet name</th>
             <th>Birthdate</th>
             <th>Price</th>
@@ -47,7 +48,8 @@
         echo "<tbody>";
         
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>$row[p_id]</td>";
+            echo "<tr><td>$row[p_id]</td>
+            <th>$row[animal]</th>";
         
             if ($row["pet_name"] == null || $row["pet_name"] == "") {
                 echo '<td>No name</td>';
