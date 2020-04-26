@@ -24,7 +24,9 @@
     		<li><a href="addAnimal.php">Add new type of animal</a></li>
     		<li><a href="deleteAnimal.php">Delete a type of animal</a></li>
     		<li><a href="editAnimal.php">Edit diet type of animal</a></li>
+    		<br>
     		<li><a href="pet.php">Display all pets</a></li>
+    		<li><a href="addPet.php">Add new pet</a></li>
     	</ul>
     </body>
 </html>
