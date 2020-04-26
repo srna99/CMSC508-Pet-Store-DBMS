@@ -35,7 +35,7 @@
         session_start();
         
         // first page
-        if (!isset($_GET['employee_id']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
+        if (!isset($_GET['classification']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
             $stmt = $conn->prepare('select classification from Animal order by classification;');
             $stmt->execute();
