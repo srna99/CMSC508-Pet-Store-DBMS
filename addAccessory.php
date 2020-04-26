@@ -56,7 +56,7 @@
             echo "<option value='-1'>No animal</option>";
 
             while ($row = $stmt->fetch()) {
-                echo "<option value='" . $row['animal'] . "'>" . $row['animal'] . "</option>";
+                echo "<option value='" . $row['animal'] . "'>" "</option>";
             }   
 
             
