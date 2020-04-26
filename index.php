@@ -21,6 +21,7 @@
   		<h2>Pets</h2>
     	<ul>
     		<li><a href="animal.php">Display all types of animals</a></li>
+    		<li><a href="addAnimal.php">Add new type of animal</a></li>
     		<li><a href="pet.php">Display all pets</a></li>
     	</ul>
     </body>
