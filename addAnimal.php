@@ -144,9 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
            
             echo "<select name='diet_type'>";
             
-            echo "<option value='1'>Carnivore</option>";
-            echo "<option value='2'>Herbivore</option>";
-            echo "<option value='3'>Omnivore</option>";
+            echo "<option value='Carnivore'>Carnivore</option>";
+            echo "<option value='Herbivore'>Herbivore</option>";
+            echo "<option value='Omnivore'>Omnivore</option>";
             
             echo "</select>";
             echo "</td></tr>";
