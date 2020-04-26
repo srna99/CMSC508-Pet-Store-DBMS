@@ -27,6 +27,7 @@
     		<br>
     		<li><a href="pet.php">Display all pets</a></li>
     		<li><a href="addPet.php">Add new pet</a></li>
+    		<li><a href="editPet.php">Edit pet</a></li>
     		<li><a href="deletePet.php">Delete a pet</a></li>
     	</ul>
     </body>
