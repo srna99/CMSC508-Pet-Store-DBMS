@@ -34,6 +34,8 @@
     	
     	<h2>Stock</h2>
     	
+    	<h2>Customers</h2>
+    	
     	<h2>Personnel and Related Matters</h2>
     	
     	<h2>Stores and Businesses</h2>
