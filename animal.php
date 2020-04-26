@@ -24,7 +24,7 @@
 	</head>
 	
 	<body>
-		<h1>List of All Animals</h1>
+		<h1>List of All Types of Animals</h1>
 	
         <?php
         require_once ('connection.php');
