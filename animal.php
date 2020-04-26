@@ -40,11 +40,9 @@
             </tr></thead>";
         echo "<tbody>";
         
+        // show info from query
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>$row[p_id]</td>
-            <td>$row[classification]</td>
-            <td>$row[diet_type]</td>
-            </tr>";
+            echo "<tr><td>$row[classification]</td><td>$row[diet_type]</td></tr>";
         }
         
         echo "</tbody>";
@@ -52,6 +50,7 @@
         
         ?>
         
+        <!-- click to get back to index -->
 		<a href="index.php">Back to index</a>
 	</body>
 </html>
