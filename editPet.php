@@ -42,10 +42,10 @@
             
             // select a pet to get to current related info
             echo "<form method='get'>";
-            echo "Select a pet";
+            echo "Select a pet:  ";
             
             // make dropdown menu for pets
-            echo "<select name='p_id'>";
+            echo "<select name='p_id' onchange='this.form.submit();'>";
             
             // show info from query
             while ($row = $stmt->fetch()) {
