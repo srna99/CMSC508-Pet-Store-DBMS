@@ -33,7 +33,11 @@
     	</ul>
     	
     	<h2>Stock</h2>
-    	
+    	<ul>
+			<li><a href="accessory.php">Display All Accessories</a></li>
+			<li><a href="addAccessory.php">Add New Accessory</a></li>
+		</ul>
+		
     	<h2>Customers</h2>
     	
     	<h2>Personnel and Related Matters</h2>
