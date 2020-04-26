@@ -88,7 +88,7 @@
                 $stmt = $conn->prepare("insert into Pet(animal, pet_name, birthdate, price, store) values (:animal, :pet_name, :birthdate, :price, :store);");
                 
                 $stmt->bindValue(':animal', $_POST['animal']);
-                $stmt->bindValue(':pet_name', $_POST['pet_name']);
+                $stmt->bindValue(':pet_name', trim($_POST['pet_name']));
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':store', $_POST['store']);
                 

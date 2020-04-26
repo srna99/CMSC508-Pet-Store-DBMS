@@ -66,7 +66,7 @@
                 // insert into table
                 $stmt = $conn->prepare("insert into Animal values (:classification, :diet_type);");
                 
-                $stmt->bindValue(':classification', $_POST['classification']);
+                $stmt->bindValue(':classification', trim($_POST['classification']));
                 $stmt->bindValue(':diet_type', $_POST['diet_type']);
                 
                 $stmt->execute();
