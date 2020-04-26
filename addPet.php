@@ -45,7 +45,7 @@
             $stmt->execute();
             
             // get all animals
-            echo "<select name='classification'>";
+            echo "<select name='animal'>";
             
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[classification]'>$row[classification]</option>";
