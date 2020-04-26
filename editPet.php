@@ -75,7 +75,7 @@
             echo "<form method='post' action='editPet.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Pet name</td><td>$row[pet_name]</td></tr>";
+            echo "<tr><td>Pet name</td><td><input name='pet_name' type='text' value='$row[pet_name]' size='25' required></td></tr>";
             
             if ($row[birthdate] != null) {
                 echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' value='$row[birthdate]' min='1980-01-01' max=" . date('Y-m-d') . "></td></tr>";
@@ -92,13 +92,13 @@
             echo "<select name='store'>";
             
             while ($s_row = $stmt2->fetch()) {
-                echo "<option value='$s_row[s_id]'";
-
+                
                 if ($row[store] == $s_row[s_id]) {
-                    echo " selected";
+                    echo "<option value='$s_row[s_id]' selected>$s_row[s_id]</option>";
+                } else {
+                    echo "<option value='$s_row[s_id]'>$s_row[s_id]</option>";
                 }
                 
-                echo ">$s_row[s_id]</option>";
             }
             
             echo "</select>";
