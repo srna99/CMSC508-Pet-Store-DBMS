@@ -31,13 +31,13 @@
         <?php
         
         require_once ('connection.php');
-        mysql_connect('localhost', 'project_21', 'V00809310');
-        mysql_select_db('project_21');
+        // mysql_connect('localhost', 'project_21', 'V00809310');
+        // mysql_select_db('project_21');
 
         // send post
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            $sql = "SELECT animal FROM Animal"
-            $result = mysql_query($sql);
+            // $sql = "SELECT animal FROM Animal"
+            // $result = mysql_query($sql);
 
             echo "<form method='post' action='addAccessory.php'>";
             echo "<table>";
@@ -49,17 +49,20 @@
             echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='25'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
-        //  $stmt = $conn->prepare("SELECT animal FROM Animal");
-        //     $stmt->execute();
-
-        //     while ($row = $stmt->fetch()) {
-        //         echo "<option value='$row[employee_id]'>$row[first_name] $row[last_name]</option>";
-        //     }   
+            $stmt = $conn->prepare("SELECT animal FROM Animal");
+            $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down
-            while ($row = mysql_fetch_array($result)) {
+            echo "<option value='-1'>No animal</option>";
+
+            while ($row = $stmt->fetch()) {
                 echo "<option value='" . $row['animal'] . "'>" . $row['animal'] . "</option>";
-            }
+            }   
+
+            
+            // while ($row = mysql_fetch_array($result)) {
+            //     echo "<option value='" . $row['animal'] . "'>" . $row['animal'] . "</option>";
+            // }
             
             echo "</select>";
             echo "</td></tr>";
