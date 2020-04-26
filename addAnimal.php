@@ -29,7 +29,8 @@
 	</head>
 	
 	<body>
-		<h1>List of All Types of Animals</h1>
+		
+		<h1>Add New Animal</h1>
 	
         <?php
         
@@ -196,6 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         ?>
         
         <!-- click to get back to index -->
-		<a href="index.php">Back to index</a>
+		<br><br><a href="index.php">Back to index</a>
+		
 	</body>
 </html>
