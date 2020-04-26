@@ -32,6 +32,8 @@
         
         require_once ('connection.php');
         
+        error_reporting(E_ALL ^ E_WARNING); 
+        
         session_start();
         
         // first page
@@ -136,6 +138,7 @@
                 echo "Successfully updated animal.";
                 
             } catch (PDOException $e) {
+                
                 echo "Error: " . $e->getMessage();
             }
             
