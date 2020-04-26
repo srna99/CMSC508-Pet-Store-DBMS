@@ -8,6 +8,7 @@
             
             table {
                 margin-bottom: 30px;
+                margin-left: 0.5em;
             }
             
             th, td {
@@ -19,6 +20,7 @@
             
             h1 {
                 margin-top: 0.8em;
+                margin-left: 0.5em;
             }
         </style>
 	</head>
