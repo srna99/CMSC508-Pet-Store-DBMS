@@ -58,7 +58,7 @@
         
             // replace null and "" with text
             if ($row["pet_name"] == null || $row["pet_name"] == "") {
-                echo '<td>No name</td>';
+                echo '<td>N/A</td>';
             } else {
                 echo "<td>" . $row["pet_name"] . "</td>";
             }
