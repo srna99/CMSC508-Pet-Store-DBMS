@@ -60,7 +60,7 @@
             $classification = $_GET["classification"];
             
             // get related info from pk
-            $stmt = $conn->prepare('select classification from Animal where classification = :classification;');
+            $stmt = $conn->prepare('select classification, diet_type from Animal where classification = :classification;');
             $stmt->bindValue(':classification', $classification);
             
             $stmt->execute();
