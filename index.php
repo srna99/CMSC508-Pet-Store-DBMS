@@ -16,6 +16,7 @@
     </head>
     
     <body>
+    
   		<h1>Pet Store DBMS</h1>
   		
   		<h2>Pets</h2>
@@ -30,5 +31,12 @@
     		<li><a href="editPet.php">Edit pet</a></li>
     		<li><a href="deletePet.php">Delete a pet</a></li>
     	</ul>
+    	
+    	<h2>Stock</h2>
+    	
+    	<h2>Personnel and Related Matters</h2>
+    	
+    	<h2>Stores and Businesses</h2>
+    	
     </body>
 </html>

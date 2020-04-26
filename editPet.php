@@ -135,7 +135,7 @@
                 
                 $stmt->execute();
                 
-                echo "Successfully updated animal.";
+                echo "Successfully updated pet.";
                 
             } catch (PDOException $e) {
                 
