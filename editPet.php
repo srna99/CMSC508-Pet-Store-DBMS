@@ -89,6 +89,7 @@
             $stmt2->execute();
             
             // make dropdown menu for store with current info automatically selected
+            echo "<tr><td>Store</td><td>";
             echo "<select name='store'>";
             
             while ($s_row = $stmt2->fetch()) {
