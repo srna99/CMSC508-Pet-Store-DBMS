@@ -118,7 +118,7 @@
                 // update animal with edits
                 $stmt = $conn->prepare("update Animal set diet_type = :diet_type where classification = :classification;");
                 
-                $stmt->bindValue(':first_name', $_POST['diet_type']);
+                $stmt->bindValue(':diet_type', $_POST['diet_type']);
                 $stmt->bindValue(':classification', $_SESSION["editAnimal_classification"]);
                 
                 $stmt->execute();
