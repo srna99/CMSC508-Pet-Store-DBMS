@@ -68,7 +68,7 @@
             $row = $stmt->fetch();
             
             // display current info
-            echo "<form method='post' action='editEmployee.php'>";
+            echo "<form method='post' action='editAnimal.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Animal</td><td>$row[classification]</td></tr>";
