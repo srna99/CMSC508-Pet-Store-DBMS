@@ -54,14 +54,8 @@
         // info from query
         while ($row = $stmt->fetch()) {
             echo "<tr><td>$row[p_id]</td>
-            <td>$row[animal]</td>";
-        
-            // replace null and "" with text
-            if ($row["pet_name"] == null || $row["pet_name"] == "") {
-                echo '<td>N/A</td>';
-            } else {
-                echo "<td>" . $row["pet_name"] . "</td>";
-            }
+            <td>$row[animal]</td>
+            <td>$row[pet_name]</td>";
         
             if ($row["birthdate"] == null) {
                 echo '<td>N/A</td>';
