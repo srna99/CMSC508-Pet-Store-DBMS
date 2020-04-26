@@ -36,6 +36,7 @@
     	<ul>
 			<li><a href="accessory.php">Display All Accessories</a></li>
 			<li><a href="addAccessory.php">Add New Accessory</a></li>
+			<li><a href="deleteAccessory.php">Delete an Accessory</a></li>
 		</ul>
 		
     	<h2>Customers</h2>
