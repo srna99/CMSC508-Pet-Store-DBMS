@@ -39,7 +39,7 @@
             echo "<form method='post' action='addAnimal.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Species</td><td><input name='classification' type='text' size='25'></td></tr>";
+            echo "<tr><td>Species</td><td><input name='classification' type='text' size='25' required></td></tr>";
             echo "<tr><td>Diet type</td><td>";
            
             // make dropdown menu for diet type
