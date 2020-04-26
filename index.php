@@ -9,6 +9,7 @@
             }
             
             h2 {
+                margin-left: 0.5em;
                 margin-bottom: 0.3em;
             }
     	</style>

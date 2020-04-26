@@ -31,11 +31,13 @@
         
         setlocale(LC_MONETARY, 'en_US');
         
-        // Retrieve list of employees
+        // get all pets
         $stmt = $conn->prepare('select p_id, animal, pet_name, birthdate, price, available, store from Pet order by p_id;');
         $stmt->execute();
         
+        // make table
         echo "<table>";
+        // row headings
         echo "<thead><tr>
             <th>ID</th>
             <th>Animal</th>
@@ -47,10 +49,12 @@
             </tr></thead>";
         echo "<tbody>";
         
+        // info from query
         while ($row = $stmt->fetch()) {
             echo "<tr><td>$row[p_id]</td>
             <td>$row[animal]</td>";
         
+            // replace null and "" with text
             if ($row["pet_name"] == null || $row["pet_name"] == "") {
                 echo '<td>No name</td>';
             } else {
@@ -63,7 +67,8 @@
                 echo "<td>" . $row["birthdate"] . "</td>";
             }
         
-            echo "<td>" . money_format("%.2n", $row["price"]) . "</td>
+            // format price into money 
+            echo "<td>" . money_format("%.2n", $row["price"]) . "</td> 
             <td>$row[available]</td>
             <td>$row[store]</td>
             </tr>";
@@ -74,6 +79,7 @@
         
         ?>
         
+        <!-- back to index link -->
 		<a href="index.php">Back to index</a>
 	</body>
 </html>
