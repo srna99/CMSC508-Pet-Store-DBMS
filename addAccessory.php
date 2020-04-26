@@ -52,11 +52,11 @@
             $stmt = $conn->prepare("SELECT classification FROM Animal");
             $stmt->execute();
 
-            echo "<select name='classification'>"; // get animal for drop down
+            echo "<select name='animal'>"; // get animal for drop down
             echo "<option value='-1'>No animal</option>";
 
             while ($row = $stmt->fetch()) {
-                echo "<option value='" . $row['animal'] . "'>" "</option>";
+                echo "<option value='" . $row['classification'] . "'>" . $row['classification'] . "</option>";
             }   
 
             
