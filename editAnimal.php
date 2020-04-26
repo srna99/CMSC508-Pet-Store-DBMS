@@ -42,6 +42,7 @@
             
             // select an animal to get to current related info
             echo "<form method='get'>";
+            echo "Select an animal:  ";
             echo "<select name='classification' onchange='this.form.submit();'>";
             
             while ($row = $stmt->fetch()) {
