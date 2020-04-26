@@ -49,7 +49,7 @@
             echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='25'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
-            $stmt = $conn->prepare("SELECT animal FROM Animal");
+            $stmt = $conn->prepare("SELECT classification FROM Animal");
             $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down
