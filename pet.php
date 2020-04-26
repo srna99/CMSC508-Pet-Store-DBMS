@@ -34,7 +34,7 @@
         setlocale(LC_MONETARY, 'en_US');
         
         // get all pets
-        $stmt = $conn->prepare('select p_id, animal, pet_name, birthdate, price, available, store from Pet order by p_id;');
+        $stmt = $conn->prepare('select p_id, animal, pet_name, birthdate, price, available, store from Pet order by animal, store;');
         $stmt->execute();
         
         // make table

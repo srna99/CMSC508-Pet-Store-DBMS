@@ -32,7 +32,7 @@
         require_once ('connection.php');
         
         // get all animals
-        $stmt = $conn->prepare('select classification, diet_type from Animal;');
+        $stmt = $conn->prepare('select classification, diet_type from Animal order by classification;');
         $stmt->execute();
         
         echo "<table>";
