@@ -54,7 +54,7 @@
             echo "</select>";
             echo "</td></tr>";
             
-            echo "<tr><td>Pet name</td><td><input name='pet_name' type='text' size='25'></td></tr>";
+            echo "<tr><td>Pet name</td><td><input name='pet_name' type='text' size='25' required></td></tr>";
             echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' min='1980-01-01' max=" . date('Y-m-d') . "></td></tr>";            
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' max='99999.99' step='0.01' size='8' value='0.00' required></td></tr>";
             
@@ -88,14 +88,9 @@
                 $stmt = $conn->prepare("insert into Pet(animal, pet_name, birthdate, price, store) values (:animal, :pet_name, :birthdate, :price, :store);");
                 
                 $stmt->bindValue(':animal', $_POST['animal']);
+                $stmt->bindValue(':pet_name', $_POST['pet_name']);
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':store', $_POST['store']);
-                
-                if($_POST['pet_name'] != "") {
-                    $stmt->bindValue(':pet_name', $_POST['pet_name']);
-                } else {
-                    $stmt->bindValue(':pet_name', null, PDO::PARAM_STR);
-                }
                 
                 if($_POST['birthdate'] != "") {
                     $stmt->bindValue(':birthdate', $_POST['birthdate']);
