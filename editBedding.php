@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Update Accessory</h1>
+		<h1>Update Bedding</h1>
 	
         <?php
         
@@ -37,17 +37,17 @@
         // first page
         if (!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select SN,type_of,brand,animal from Accessory order by SN;');
+            $stmt = $conn->prepare('select SN,brand,animal from Bedding order by SN;');
             $stmt->execute();
             
             // select an accessory to get to current related info
             echo "<form method='get'>";
-            echo "Select an Accessory:  ";
+            echo "Select Bedding:  ";
             echo "<select name='SN' onchange='this.form.submit();'>";
-            echo "<option disabled selected value> -- select an accessory -- </option>";
+            echo "<option disabled selected value> -- select Bedding -- </option>";
 
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: $row[type_of] from $row[brand] for $row[animal]</option>";
+                echo "<option value='$row[SN]'>$row[SN]: $row[brand] for $row[animal]</option>";
             }
             
             echo "</select>";
@@ -62,7 +62,7 @@
             $SN = $_GET["SN"];
             
             // get related info from pk
-            $stmt = $conn->prepare('select SN, type_of,quantity,price,brand,animal from Accessory where SN = :SN;');
+            $stmt = $conn->prepare('select SN,quantity,price,brand,animal from Bedding where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
             
             $stmt->execute();
@@ -70,14 +70,13 @@
             $row = $stmt->fetch();
             
             // display current info
-            echo "<form method='post' action='editAccessory.php'>";
+            echo "<form method='post' action='editBedding.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Serial Number</td><td>$row[SN]</td></tr>";
             echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='7'></td></tr>";
             echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='11'></td></tr>";
-            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
             $stmt = $conn->prepare("SELECT classification FROM Animal");
@@ -99,31 +98,30 @@
             echo "</table>";
             echo "</form>";
             
-            $_SESSION["editAccessory_SN"] = $SN; 
+            $_SESSION["editBedding_SN"] = $SN; 
             
         } else { // after submitting form
             
             try {
                 
-                // update Accessory with edits
-                $stmt = $conn->prepare("update Accessory set brand = :brand, price = :price, quantity = :quantity,type_of = :type_of, animal = :animal where SN = :SN;");
+                // update Bedding with edits
+                $stmt = $conn->prepare("update Bedding set brand = :brand, price = :price, quantity = :quantity, animal = :animal where SN = :SN;");
                 
                 $stmt->bindValue(':brand', $_POST['brand']);
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':quantity', $_POST['quantity']);
-                $stmt->bindValue(':type_of', $_POST['type_of']);
                 $stmt->bindValue(':animal', $_POST['animal']);
-                $stmt->bindValue(':SN', $_SESSION["editAccessory_SN"]);
+                $stmt->bindValue(':SN', $_SESSION["editBedding_SN"]);
                 
                 $stmt->execute();
                 
-                echo "Successfully updated Accessory.";
+                echo "Successfully updated Bedding.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }
             
-            unset ($_SESSION["editAccessory_SN"]);
+            unset ($_SESSION["editBedding_SN"]);
             
         }
         

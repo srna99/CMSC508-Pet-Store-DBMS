@@ -41,6 +41,8 @@
 			<br>
 			<li><a href="bedding.php">Display All Bedding</a></li>
 			<li><a href="addBedding.php">Add New Bedding</a></li>
+			<li><a href="editBedding.php">Edit a Bedding</a></li>
+			<li><a href="deleteBedding.php">Delete a Bedding</a></li>
 		</ul>
 		
     	<h2>Customers</h2>
