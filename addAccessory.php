@@ -39,11 +39,11 @@
             echo "<form method='post' action='addAccessory.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='8'></td></tr>";
-            echo "<tr><td>Brand</td><td><input name='brand' type='text' size='25'></td></tr>";
-            echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='8'></td></tr>";
-            echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='8'></td></tr>";
-            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='25'></td></tr>";
+            echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
+            echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
+            echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='7'></td></tr>";
+            echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='11'></td></tr>";
+            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
             $stmt = $conn->prepare("SELECT classification FROM Animal");

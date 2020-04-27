@@ -34,13 +34,13 @@
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select SN from Accessory order by SN;');
+            $stmt = $conn->prepare('select CONCAT(SN, ": ", type_of," from ", brand, " for ", animal) from Accessory order by SN;');
             $stmt->execute();
             
             echo "<form method='post' action='deleteAccessory.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Species</td><td>";
+            echo "<tr><td>Serial Number</td><td>";
            
             // make dropdown menu
             echo "<select name='SN'>";

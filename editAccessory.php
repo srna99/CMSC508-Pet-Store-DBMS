@@ -37,7 +37,7 @@
         // first page
         if (!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select CONCAT(SN, " ", type_of," from ", brand, " for ", animal) as choices from Accessory order by SN;');
+            $stmt = $conn->prepare('select CONCAT(SN, ": ", type_of," from ", brand, " for ", animal) as choices from Accessory order by SN;');
             $stmt->execute();
             
             // select an accessory to get to current related info
@@ -79,14 +79,13 @@
             echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='25'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
-            $stmt = $conn->prepare("SELECT classification FROM Animal");
+            $stmt = $conn->prepare("SELECT animal FROM Accessory");
             $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down
-            echo "<option value='-1'>No animal</option>";
 
             while ($row = $stmt->fetch()) {
-                echo "<option value='" . $row['classification'] . "'>" . $row['classification'] . "</option>";
+                echo "<option value='" . $row['animal'] . "'>" . $row['animal'] . "</option>";
             }
             
             echo "</select>";
