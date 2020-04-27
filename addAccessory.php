@@ -50,7 +50,6 @@
             $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down
-            echo "<option value='-1'>No animal</option>";
 
             while ($row = $stmt->fetch()) {
                 echo "<option value='" . $row['classification'] . "'>" . $row['classification'] . "</option>";
