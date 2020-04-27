@@ -122,7 +122,7 @@
                 // update pet with edits
                 $stmt = $conn->prepare("update Pet set pet_name = :pet_name, birthdate = :birthdate, price = :price, store = :store where p_id = :p_id;");
                 
-                $stmt->bindValue(':pet_name', $_POST['pet_name']);
+                $stmt->bindValue(':pet_name', trim($_POST['pet_name']));
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':store', $_POST['store']);
                 $stmt->bindValue(':p_id', $_SESSION["editPet_p_id"]);
