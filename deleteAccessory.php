@@ -44,7 +44,7 @@
            
             // make dropdown menu
             echo "<select name='SN'>";
-            
+            echo "<option disabled selected value> -- select an accessory -- </option>";
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[SN]'>$row[SN]: $row[type_of] from $row[brand] for $row[animal]</option>";
             }

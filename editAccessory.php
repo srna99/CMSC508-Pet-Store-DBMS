@@ -44,7 +44,8 @@
             echo "<form method='get'>";
             echo "Select an Accessory:  ";
             echo "<select name='SN' onchange='this.form.submit();'>";
-            
+            echo "<option disabled selected value> -- select an accessory -- </option>";
+
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[SN]'>$row[SN]: $row[type_of] from $row[brand] for $row[animal]</option>";
             }
@@ -83,6 +84,7 @@
             $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down
+            echo "<option disabled selected value> -- select an animal -- </option>";
 
             while ($row = $stmt->fetch()) {
                 echo "<option value='" . $row['classification'] . "'>" . $row['classification'] . "</option>";
