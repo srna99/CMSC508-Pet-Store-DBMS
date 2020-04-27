@@ -37,7 +37,7 @@
         // first page
         if (!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select SN from Accessory order by SN;');
+            $stmt = $conn->prepare('select SN,type_of,brand,animal from Accessory order by SN;');
             $stmt->execute();
             
             // select an accessory to get to current related info
