@@ -43,6 +43,11 @@
 			<li><a href="addBedding.php">Add New Bedding</a></li>
 			<li><a href="editBedding.php">Edit a Bedding</a></li>
 			<li><a href="deleteBedding.php">Delete a Bedding</a></li>
+			<br>
+			<li><a href="Food.php">Display All Food</a></li>
+			<li><a href="addFood.php">Add New Food</a></li>
+			<li><a href="editFood.php">Edit a Food</a></li>
+			<li><a href="deleteFood.php">Delete a Food</a></li>
 		</ul>
 		
     	<h2>Customers</h2>
