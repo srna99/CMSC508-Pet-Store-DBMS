@@ -44,6 +44,7 @@
             echo "<form method='get'>";
             echo "Select an animal:  ";
             echo "<select name='classification' onchange='this.form.submit();'>";
+            echo "<option disabled selected value> -- select an animal -- </option>";
             
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[classification]'>$row[classification]</option>";

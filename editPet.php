@@ -48,6 +48,7 @@
             
             // make dropdown menu for pets
             echo "<select name='p_id' onchange='this.form.submit();'>";
+            echo "<option disabled selected value> -- select a pet -- </option>";
             
             // show info from query
             while ($row = $stmt->fetch()) {
