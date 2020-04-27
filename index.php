@@ -40,6 +40,7 @@
 			<li><a href="deleteAccessory.php">Delete an Accessory</a></li>
 			<br>
 			<li><a href="bedding.php">Display All Bedding</a></li>
+			<li><a href="addBedding.php">Add New Bedding</a></li>
 		</ul>
 		
     	<h2>Customers</h2>
