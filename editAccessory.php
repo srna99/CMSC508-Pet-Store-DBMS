@@ -79,7 +79,7 @@
             echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='25'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
-            $stmt = $conn->prepare("SELECT animal FROM Accessory");
+            $stmt = $conn->prepare("SELECT animal FROM Accessory order by animal");
             $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down

@@ -34,7 +34,7 @@
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select SN, type_of,brand,animal from Accessory order by SN;');
+            $stmt = $conn->prepare('select SN,type_of,brand,animal from Accessory order by SN;');
             $stmt->execute();
             
             echo "<form method='post' action='deleteAccessory.php'>";
