@@ -34,7 +34,7 @@
 
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select SN, CONCAT(SN, ": ", type_of," from ", brand, " for ", animal) from Accessory order by SN;');
+            $stmt = $conn->prepare('select SN, CONCAT(SN, ": ", type_of," from ", brand, " for ", animal) as choices from Accessory order by SN;');
             $stmt->execute();
             
             echo "<form method='post' action='deleteAccessory.php'>";
@@ -43,7 +43,7 @@
             echo "<tr><td>Serial Number</td><td>";
            
             // make dropdown menu
-            echo "<select name='SN'>";
+            echo "<select name='choices'>";
             
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[SN]'>$row[SN]</option>";
