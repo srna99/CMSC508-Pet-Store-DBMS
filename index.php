@@ -39,7 +39,10 @@
 			<li><a href="editAccessory.php">Edit an Accessory</a></li>
 			<li><a href="deleteAccessory.php">Delete an Accessory</a></li>
 		</ul>
-		
+		<br>
+		<ul>
+			<li><a href="bedding.php">Display All Bedding</a></li>
+		</ul>
     	<h2>Customers</h2>
     	
     	<h2>Personnel and Related Matters</h2>
