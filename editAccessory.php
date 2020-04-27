@@ -79,14 +79,14 @@
             echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='25'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
-            $stmt = $conn->prepare("SELECT animal FROM Accessory order by animal");
+            $stmt = $conn->prepare("SELECT classification FROM Animal");
             $stmt->execute();
 
             echo "<select name='animal'>"; // get animal for drop down
 
             while ($row = $stmt->fetch()) {
-                echo "<option value='" . $row['animal'] . "'>" . $row['animal'] . "</option>";
-            }
+                echo "<option value='" . $row['classification'] . "'>" . $row['classification'] . "</option>";
+            }  
             
             echo "</select>";
             echo "</td></tr>";
