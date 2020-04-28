@@ -31,7 +31,7 @@
         <?php
         require_once ('connection.php');
         
-        // get all pets
+        // get all customers
         $stmt = $conn->prepare('select c_id, first_name, last_name, email, birthdate, phone_number, address from Customer order by first_name, last_name;');
         $stmt->execute();
         
