@@ -44,7 +44,7 @@
             
             // select a customer to get to current related info
             echo "<form method='get'>";
-            echo "Select a pet:  ";
+            echo "Select a customer:  ";
             
             // make dropdown menu for customer
             echo "<select name='c_id' onchange='this.form.submit();'>";
