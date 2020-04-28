@@ -168,10 +168,9 @@
             try {
                 
                 // insert into Employee table
-                $stmt = $conn->prepare("insert into Employee(first_name, last_name, SSN, salary, birthdate, phone_number, address, manager, store) 
-                            values (:first_name, :last_name, :ssn, :salary, :birthdate, :phone_number, :address, :manager, :store);");
-                            
-                $stmt2 = $conn->prepare("select last_insert_id() as prev_id;");
+                $stmt = $conn->prepare("insert into Employee(first_name, last_name, SSN, salary, birthdate, phone_number, address, manager, store) values (:first_name, :last_name, :ssn, :salary, :birthdate, :phone_number, :address, :manager, :store);");
+                // get e_id that was just inserted          
+//                 $stmt2 = $conn->prepare("select last_insert_id() as prev_id;");
                 
                 $stmt->bindValue(':first_name', trim($_POST['first_name']));
                 $stmt->bindValue(':last_name', trim($_POST['last_name']));
@@ -199,12 +198,12 @@
                 }
                 
                 $stmt->execute();
-                $stmt2->execute();
+//                 $stmt2->execute();
                 
-                $row = $stmt2->fetch();
+//                 $row = $stmt2->fetch();
                 
                 // get emp auto e_id
-                $_SESSION["addEmployee_prev_id"] = $row[prev_id];
+                $_SESSION["addEmployee_prev_id"] = $conn->lastInsertId();
                 
                 // insert into appropriate tables
                 if ($_SESSION["addEmployee_type"] == "Cashier") {
@@ -218,8 +217,8 @@
                     
                 } elseif ($_SESSION["addEmployee_type"] == "Groomer") {
                     
-                    $g_stmt = $conn->prepare("insert into Certification(date_certified, type_of) values (:date_certified, 'Groomer');
-                                    insert into Groomer(e_id, specialty, certification) values (:prev_id, :specialty, last_insert_id());");
+                    $g_stmt = $conn->prepare("insert into Certification(date_certified, type_of) values (:date_certified, 'Groomer');");
+                    $g_stmt2 = $conn->prepare("insert into Groomer(e_id, specialty, certification) values (:prev_id, :specialty, last_insert_id());");
                     
                     $g_stmt->bindValue(':prev_id', $_SESSION["addEmployee_prev_id"]);
                     $g_stmt->bindValue(':date_certified', $_POST['date_certified']);
