@@ -32,6 +32,8 @@
         
         require_once ('connection.php');
         
+        session_start();
+        
         // first page
         if (!isset($_GET['type']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
