@@ -12,6 +12,10 @@
                 margin-left: 0.5em;
                 margin-bottom: 0.3em;
             }
+            
+            #last {
+                padding-bottom: 100px;
+            }
     	</style>
     </head>
     
@@ -57,8 +61,12 @@
     	</ul>
     	
     	<h2>Personnel and Related Matters</h2>
+    	<ul>
+    	</ul>
     	
     	<h2>Stores and Businesses</h2>
+    	<ul id="last">
+    	</ul>
     	
     </body>
 </html>
