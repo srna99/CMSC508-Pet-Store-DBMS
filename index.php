@@ -53,6 +53,7 @@
     	<h2>Customers</h2>
     	<ul>
     		<li><a href="customer.php">Display All Customers</a></li>
+    		<li><a href="addCustomer.php">Add New Customer</a></li>
     	</ul>
     	
     	<h2>Personnel and Related Matters</h2>
