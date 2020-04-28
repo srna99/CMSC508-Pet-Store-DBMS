@@ -68,7 +68,7 @@
             echo "<tr><td>Phone number</td><td><input name='phone_number' type='tel' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'><br><small>Format: 123-456-7890</small></td></tr>";
             echo "<tr><td>Address</td><td><input name='address' type='text' size='25'></td></tr>";
             
-            $stmt = $conn->prepare('select s_id, manager, concat(first_name, " ", last_name) as manager_name from Store s left join Employee e on s.manager = e.e_id order by manager_name;');
+            $stmt = $conn->prepare('select s_id, s.manager, concat(first_name, " ", last_name) as manager_name from Store s left join Employee e on s.manager = e.e_id order by manager_name;');
             $stmt->execute();
             
             // make dropdown menu for manager
