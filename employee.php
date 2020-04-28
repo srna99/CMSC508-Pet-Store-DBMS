@@ -57,7 +57,7 @@
         
         // info from query
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>$row[c_id]</td>
+            echo "<tr><td>$row[e_id]</td>
             <td>$row[first_name]</td>
             <td>$row[last_name]</td>
             <td>" . money_format("%.2n", $row["salary"]) . "</td>
