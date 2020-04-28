@@ -62,8 +62,6 @@
             <td>$row[last_name]</td>
             <td>" . money_format("%.2n", $row["salary"]) . "</td>
             <td>$row[birthdate]</td>";
-        
-            echo "<td>$row[birthdate]</td>";
             
             if ($row["phone_number"] == null) {
                 echo '<td>N/A</td>';
