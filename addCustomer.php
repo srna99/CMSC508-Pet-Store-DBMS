@@ -58,7 +58,7 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Customer(first_name, last_name, email, birthdate, phone_number, address) values (:first_name, :last_name, ,:email, :birthdate, :phone_number, :address);");
+                $stmt = $conn->prepare("insert into Customer(first_name, last_name, email, birthdate, phone_number, address) values (:first_name, :last_name, :email, :birthdate, :phone_number, :address);");
                 
                 $stmt->bindValue(':first_name', trim($_POST['first_name']));
                 $stmt->bindValue(':last_name', trim($_POST['last_name']));
