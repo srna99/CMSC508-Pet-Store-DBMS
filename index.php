@@ -67,6 +67,7 @@
     	
     	<h2>Personnel and Related Matters</h2>
     	<ul>
+    		<li><a href="employee.php">Display All Employees</a></li>
     	</ul>
     	
     	<h2>Stores and Businesses</h2>
