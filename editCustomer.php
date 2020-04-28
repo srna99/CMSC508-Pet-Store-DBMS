@@ -117,6 +117,7 @@
                 
                 $stmt->bindValue(':first_name', trim($_POST['first_name']));
                 $stmt->bindValue(':last_name', trim($_POST['last_name']));
+                $stmt->bindValue(':c_id', $_SESSION["editCustomer_c_id"]);
                 
                 if($_POST['email'] != "") {
                     $stmt->bindValue(':email', trim($_POST['email']));
