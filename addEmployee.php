@@ -169,9 +169,7 @@
                 
                 // insert into Employee table
                 $stmt = $conn->prepare("insert into Employee(first_name, last_name, SSN, salary, birthdate, phone_number, address, manager, store) values (:first_name, :last_name, :ssn, :salary, :birthdate, :phone_number, :address, :manager, :store);");
-                // get e_id that was just inserted          
-//                 $stmt2 = $conn->prepare("select last_insert_id() as prev_id;");
-                
+               
                 $stmt->bindValue(':first_name', trim($_POST['first_name']));
                 $stmt->bindValue(':last_name', trim($_POST['last_name']));
                 $stmt->bindValue(':ssn', trim($_POST['ssn']));
@@ -198,12 +196,11 @@
                 }
                 
                 $stmt->execute();
-//                 $stmt2->execute();
                 
-//                 $row = $stmt2->fetch();
-                
-                // get emp auto e_id
+                // get last inserted emp e_id
                 $_SESSION["addEmployee_prev_id"] = $conn->lastInsertId();
+                // for getting certificate id
+                $_SESSION["addEmployee_cert_id"] = null;
                 
                 // insert into appropriate tables
                 if ($_SESSION["addEmployee_type"] == "Cashier") {
@@ -218,18 +215,23 @@
                 } elseif ($_SESSION["addEmployee_type"] == "Groomer") {
                     
                     $g_stmt = $conn->prepare("insert into Certification(date_certified, type_of) values (:date_certified, 'Groomer');");
-                    $g_stmt2 = $conn->prepare("insert into Groomer(e_id, specialty, certification) values (:prev_id, :specialty, last_insert_id());");
-                    
-                    $g_stmt->bindValue(':prev_id', $_SESSION["addEmployee_prev_id"]);
                     $g_stmt->bindValue(':date_certified', $_POST['date_certified']);
+                    $g_stmt->execute();
+                    
+                    $_SESSION["addEmployee_cert_id"] = $conn->lastInsertId();
+                    
+                    $g_stmt2 = $conn->prepare("insert into Groomer(e_id, specialty, certification) values (:prev_id, :specialty, :certification);");
+                    
+                    $g_stmt2->bindValue(':prev_id', $_SESSION["addEmployee_prev_id"]);
+                    $g_stmt2->bindValue(':certification', $_SESSION["addEmployee_cert_id"]);
                     
                     if($_POST['specialty'] != "") {
-                        $g_stmt->bindValue(':specialty', trim($_POST['specialty']));
+                        $g_stmt2->bindValue(':specialty', trim($_POST['specialty']));
                     } else {
-                        $g_stmt->bindValue(':specialty', null, PDO::PARAM_STR);
+                        $g_stmt2->bindValue(':specialty', null, PDO::PARAM_STR);
                     }
                     
-                    $g_stmt->execute();
+                    $g_stmt2->execute();
                     
                 } elseif ($_SESSION["addEmployee_type"] == "Stocker") {
                     
@@ -248,21 +250,29 @@
                     
                 } elseif ($_SESSION["addEmployee_type"] == "Trainer") {
                     
-                    $t_stmt = $conn->prepare("insert into Trainer(e_id, max_lessons_per_day) values (:prev_id, :max_lessons_per_day);
-                                    insert into Certification(date_certified, type_of) values (:date_certified, 'Trainer');
-                                    insert into Cert_Trainer(trainer, certification, animal) values (:prev_id, last_insert_id(), :animal);");
+                    $t_stmt = $conn->prepare("insert into Certification(date_certified, type_of) values (:date_certified, 'Trainer');");
+                    $g_stmt->bindValue(':date_certified', $_POST['date_certified']);
+                    $g_stmt->execute();
                     
-                    $t_stmt->bindValue(':prev_id', $_SESSION["addEmployee_prev_id"]);
-                    $t_stmt->bindValue(':date_certified', $_POST['date_certified']);
-                    $t_stmt->bindValue(':animal', $_POST['animal']);
+                    $_SESSION["addEmployee_cert_id"] = $conn->lastInsertId();
+                    
+                    $t_stmt2 = $conn->prepare("insert into Trainer(e_id, max_lessons_per_day) values (:prev_id, :max_lessons_per_day);");
+                    $t_stmt3 = $conn->prepare("insert into Cert_Trainer(trainer, certification, animal) values (:prev_id, :certification, :animal);");
+                    
+                    $t_stmt2->bindValue(':prev_id', $_SESSION["addEmployee_prev_id"]);
                     
                     if($_POST['max_lessons_per_day'] !=  "" || $_POST['max_lessons_per_day'] != null) {
-                        $t_stmt->bindValue(':max_lessons_per_day', $_POST['max_lessons_per_day']);
+                        $t_stmt2->bindValue(':max_lessons_per_day', $_POST['max_lessons_per_day']);
                     } else {
-                        $t_stmt->bindValue(':max_lessons_per_day', null, PDO::PARAM_INT);
+                        $t_stmt2->bindValue(':max_lessons_per_day', null, PDO::PARAM_INT);
                     }
                     
-                    $t_stmt->execute();
+                    $t_stmt3->bindValue(':prev_id', $_SESSION["addEmployee_prev_id"]);
+                    $t_stmt3->bindValue(':certification', $_SESSION["addEmployee_cert_id"]);
+                    $t_stmt3->bindValue(':animal', $_POST['animal']);
+                    
+                    $t_stmt2->execute();
+                    $t_stmt3->execute();
                     
                 }
                 
@@ -274,6 +284,7 @@
             
             unset ($_SESSION["addEmployee_type"]);
             unset ($_SESSION["addEmployee_prev_id"]);
+            unset ($_SESSION["addEmployee_cert_id"]);
             
         }
         
