@@ -250,7 +250,7 @@
                     
                 } elseif ($_SESSION["addEmployee_type"] == "Trainer") {
                     
-                    $t_stmt = $conn->prepare("insert into Certification(date_certified, type_of) values (:date_certified, 'Trainer');");
+                    $g_stmt = $conn->prepare("insert into Certification(date_certified, type_of) values (:date_certified, 'Trainer');");
                     $g_stmt->bindValue(':date_certified', $_POST['date_certified']);
                     $g_stmt->execute();
                     
