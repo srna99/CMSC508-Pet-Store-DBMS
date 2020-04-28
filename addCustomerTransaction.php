@@ -58,6 +58,7 @@
             $stmt->execute();
             
             // get all pets
+            echo "<tr><td>Pet</td><td>";
             echo "<select name='pet'>";
             
             while ($row = $stmt->fetch()) {
