@@ -61,7 +61,8 @@
     		<li><a href="editCustomer.php">Edit a Customer</a></li>
     		<li><a href="deleteCustomer.php">Delete a Customer</a></li>
     		<br>
-    		<li><a href="customerTransactions.php">Display All Customers' Pet Transactions</a></li>
+    		<li><a href="customerTransactions.php">Display All Customers' Transactions</a></li>
+    		<li><a href="addCustomerTransaction.php">Add New Transaction</a></li>
     	</ul>
     	
     	<h2>Personnel and Related Matters</h2>
