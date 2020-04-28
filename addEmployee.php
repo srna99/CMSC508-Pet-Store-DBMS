@@ -168,8 +168,10 @@
             try {
                 
                 // insert into Employee table
-                $stmt = $conn->prepare("insert into Employee(first_name, last_name, SSN, salary, birthdate, phone_number, address, manager, store) values (:first_name, :last_name, :ssn, :salary, :birthdate, :phone_number, :address, :manager, :store);
-                            select last_insert_id() as prev_id;");
+                $stmt = $conn->prepare("insert into Employee(first_name, last_name, SSN, salary, birthdate, phone_number, address, manager, store) 
+                            values (:first_name, :last_name, :ssn, :salary, :birthdate, :phone_number, :address, :manager, :store);");
+                            
+                $stmt2 = $conn->prepare("select last_insert_id() as prev_id;");
                 
                 $stmt->bindValue(':first_name', trim($_POST['first_name']));
                 $stmt->bindValue(':last_name', trim($_POST['last_name']));
@@ -197,7 +199,9 @@
                 }
                 
                 $stmt->execute();
-                $row = $stmt->fetch();
+                $stmt2->execute();
+                
+                $row = $stmt2->fetch();
                 
                 // get emp auto e_id
                 $_SESSION["addEmployee_prev_id"] = $row[prev_id];
