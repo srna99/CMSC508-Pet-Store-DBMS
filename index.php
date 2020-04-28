@@ -58,6 +58,7 @@
     	<ul>
     		<li><a href="customer.php">Display All Customers</a></li>
     		<li><a href="addCustomer.php">Add New Customer</a></li>
+    		<li><a href="deleteCustomer.php">Delete a Customer</a></li>
     	</ul>
     	
     	<h2>Personnel and Related Matters</h2>
