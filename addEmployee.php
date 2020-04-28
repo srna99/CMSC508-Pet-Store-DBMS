@@ -63,7 +63,7 @@
             echo "<tbody>";
             echo "<tr><td>First name</td><td><input name='first_name' type='text' size='25' required></td></tr>";
             echo "<tr><td>Last name</td><td><input name='last_name' type='text' size='25' required></td></tr>";
-            echo "<tr><td>SSN</td><td><input name='ssn' type='number' min='100000000' max='999999999' step='1' size='13' required></td></tr>";
+            echo "<tr><td>SSN</td><td><input name='ssn' type='number' min='100000000' max='999999999' step='1' size='25' required></td></tr>";
             echo "<tr><td>Salary</td><td><input name='salary' type='number' min='0.01' max='999999.99' step='0.01' size='8' value='0.00' required></td></tr>";
             echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' min='1910-01-01' max=" . date('Y-m-d') . " required></td></tr>";
             echo "<tr><td>Phone number</td><td><input name='phone_number' type='tel' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'><br><small>Format: 123-456-7890</small></td></tr>";
