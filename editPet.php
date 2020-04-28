@@ -83,7 +83,7 @@
             if ($row[birthdate] != null) {
                 echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' value='$row[birthdate]' min='1980-01-01' max=" . date('Y-m-d') . "></td></tr>";
             } else {
-                echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' min='1980-01-01' max=" . date('Y-m-d') . "></td></tr>";
+                echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' min='1910-01-01' max=" . date('Y-m-d') . "></td></tr>";
             }
             
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' max='99999.99' step='0.01' size='8' value='$row[price]' required></td></tr>";

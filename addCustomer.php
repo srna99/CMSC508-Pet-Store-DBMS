@@ -42,7 +42,7 @@
             echo "<tr><td>First name</td><td><input name='first_name' type='text' size='25' required></td></tr>";
             echo "<tr><td>Last name</td><td><input name='last_name' type='text' size='25' required></td></tr>";
             echo "<tr><td>Email</td><td><input name='email' type='email' size='25'></td></tr>";
-            echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' min='1980-01-01' max=" . date('Y-m-d') . " required></td></tr>";
+            echo "<tr><td>Birthdate</td><td><input name='birthdate' type='date' min='1910-01-01' max=" . date('Y-m-d') . " required></td></tr>";
             echo "<tr><td>Phone number</td><td><input name='phone_number' type='tel' pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'><br><small>Format: 123-456-7890</small></td></tr>";
             echo "<tr><td>Address</td><td><input name='address' type='text' size='25'></td></tr>";
             
