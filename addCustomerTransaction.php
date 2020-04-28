@@ -77,10 +77,10 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Buys(customer, pet, date_bought) values (:c_id, :p_id, curdate());");
+                $stmt = $conn->prepare("insert into Buys(customer, pet, date_bought) values (:customer, :pet, curdate());");
                 
                 $stmt->bindValue(':customer', $_POST['customer']);
-                $stmt->bindValue(':pet', trim($_POST['pet']));
+                $stmt->bindValue(':pet', $_POST['pet']);
                 
                 $stmt->execute();
                 
