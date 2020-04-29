@@ -18,7 +18,7 @@
                 margin-bottom: 0.3em;
             }
             
-            ul {
+            ul, li {
                 text-align: center;
             }
             
