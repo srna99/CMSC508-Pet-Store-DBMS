@@ -18,10 +18,6 @@
                 margin-bottom: 0.3em;
             }
             
-            ul, li {
-                text-align: center;
-            }
-            
             #last {
                 padding-bottom: 100px;
             }
