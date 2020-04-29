@@ -69,6 +69,7 @@
     	<h2>Personnel and Related Matters</h2>
     	<ul>
     		<li><a href="employee.php">Display All Employees</a></li>
+    		<li><a href="cashier.php">Display All Cashiers</a></li>
     		<li><a href="addEmployee.php">Add New Employee</a></li>
     		<li><a href="editEmployee.php">Edit An Employee</a></li>
     		<li><a href="deleteEmployee.php">Delete An Employee</a></li>
