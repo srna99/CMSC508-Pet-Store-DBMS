@@ -3,13 +3,17 @@
     	<title>CMSC 508 Pet Store DBMS</title>
     	
     	<style>
-    	   h1 {
+    	    h1, h2, ul {
+    	        margin-left: auto;
+    	        margin-right:auto;
+    	    }
+    	    
+    	    h1 {
                 text-align: center;
                 margin-top: 0.8em;
             }
             
             h2 {
-                margin-left: 0.5em;
                 margin-bottom: 0.3em;
             }
             
