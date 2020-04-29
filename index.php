@@ -23,6 +23,10 @@
               list-style: inside;
             }
             
+            a {
+                text-align: center;
+            }
+            
             #last {
                 padding-bottom: 100px;
             }
@@ -76,16 +80,25 @@
         		<li><a href="customerVisited.php">Display All Stores Visited By A Customer</a></li>
         	</ul>
         	
+<!--         	<h2>Personnel and Related Matters</h2> -->
+<!--         	<ul> -->
+<!--         		<li><a href="employee.php">Display All Employees</a></li> -->
+<!--         		<li><a href="cashier.php">Display All Cashiers</a></li> -->
+<!--         		<li><a href="groomer.php">Display All Groomers</a></li> -->
+<!--         		<li><a href="stocker.php">Display All Stockers</a></li> -->
+<!--         		<li><a href="addEmployee.php">Add New Employee</a></li> -->
+<!--         		<li><a href="editEmployee.php">Edit An Employee</a></li> -->
+<!--         		<li><a href="deleteEmployee.php">Delete An Employee</a></li> -->
+<!--         	</ul> -->
+        	
         	<h2>Personnel and Related Matters</h2>
-        	<ul>
-        		<li><a href="employee.php">Display All Employees</a></li>
-        		<li><a href="cashier.php">Display All Cashiers</a></li>
-        		<li><a href="groomer.php">Display All Groomers</a></li>
-        		<li><a href="stocker.php">Display All Stockers</a></li>
-        		<li><a href="addEmployee.php">Add New Employee</a></li>
-        		<li><a href="editEmployee.php">Edit An Employee</a></li>
-        		<li><a href="deleteEmployee.php">Delete An Employee</a></li>
-        	</ul>
+        	<a href="employee.php">Display All Employees</a>
+        	<a href="cashier.php">Display All Cashiers</a>
+        	<a href="groomer.php">Display All Groomers</a>
+        	<a href="stocker.php">Display All Stockers</a>
+        	<a href="addEmployee.php">Add New Employee</a>
+        	<a href="editEmployee.php">Edit An Employee</a>
+        	<a href="deleteEmployee.php">Delete An Employee</a>
         	
         	<h2>Stores and Businesses</h2>
         	<ul id="last">
