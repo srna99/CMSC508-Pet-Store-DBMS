@@ -19,8 +19,8 @@
             }
             
             ul {
-              display: table;
-              margin: 0 auto;
+              text-align: center;
+              list-style: inside;
             }
             
             #last {
