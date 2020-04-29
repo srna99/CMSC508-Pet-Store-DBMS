@@ -75,7 +75,7 @@
     		
         	<h2>Customers</h2>
         	<div class="links">
-        		<br><a href="customer.php">Display All Customers</a>
+        		<a href="customer.php">Display All Customers</a>
         		<br><a href="addCustomer.php">Add New Customer</a>
         		<br><a href="editCustomer.php">Edit A Customer</a>
         		<br><a href="deleteCustomer.php">Delete A Customer</a>
