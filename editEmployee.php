@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Edit a Customer</h1>
+		<h1>Edit an Employee</h1>
 	
         <?php
         
