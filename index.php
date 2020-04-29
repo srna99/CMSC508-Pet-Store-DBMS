@@ -3,7 +3,7 @@
     	<title>CMSC 508 Pet Store DBMS</title>
     	
     	<style>
-    	    .content {
+    	    #content {
               max-width: 500px;
               margin: auto;
             }
@@ -14,7 +14,12 @@
             }
             
             h2 {
+                text-align: center;
                 margin-bottom: 0.3em;
+            }
+            
+            ul {
+                text-align: center;
             }
             
             #last {
@@ -24,7 +29,7 @@
     </head>
     
     <body>
-    	<div class="content">
+    	<div id="content">
       		<h1>Pet Store DBMS</h1>
       		
       		<h2>Pets</h2>
