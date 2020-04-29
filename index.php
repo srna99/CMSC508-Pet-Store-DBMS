@@ -71,6 +71,7 @@
     		<li><a href="employee.php">Display All Employees</a></li>
     		<li><a href="cashier.php">Display All Cashiers</a></li>
     		<li><a href="groomer.php">Display All Groomers</a></li>
+    		<li><a href="stocker.php">Display All Stockers</a></li>
     		<li><a href="addEmployee.php">Add New Employee</a></li>
     		<li><a href="editEmployee.php">Edit An Employee</a></li>
     		<li><a href="deleteEmployee.php">Delete An Employee</a></li>
