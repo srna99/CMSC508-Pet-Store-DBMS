@@ -63,6 +63,7 @@
     		<br>
     		<li><a href="customerTransactions.php">Display All Customers' Transactions</a></li>
     		<li><a href="addCustomerTransaction.php">Add New Transaction</a></li>
+    		<li><a href="customerVisited.php">Display All Stores Visited By A Customer</a></li>
     	</ul>
     	
     	<h2>Personnel and Related Matters</h2>
