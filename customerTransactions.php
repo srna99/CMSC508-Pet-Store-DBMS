@@ -54,7 +54,7 @@
             echo "<tr><td>$row[customer]</td>
             <td>$row[pet_name]</td>
             <td>$row[animal]</td>
-            <td>" . money_format("%.2n", $row[price]) . "</td>
+            <td>" . money_format("%.2n", $row["price"]) . "</td>
             <td>$row[date_bought]</td></tr>";
         }
         
