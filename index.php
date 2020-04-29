@@ -15,7 +15,7 @@
             
             h2 {
                 text-align: center;
-                margin-bottom: 0.3em;
+                margin-bottom: 0.6em;
             }
             
             ul {
@@ -93,12 +93,12 @@
         	
         	<h2>Personnel and Related Matters</h2>
         	<a href="employee.php">Display All Employees</a>
-        	<a href="cashier.php">Display All Cashiers</a>
-        	<a href="groomer.php">Display All Groomers</a>
-        	<a href="stocker.php">Display All Stockers</a>
-        	<a href="addEmployee.php">Add New Employee</a>
-        	<a href="editEmployee.php">Edit An Employee</a>
-        	<a href="deleteEmployee.php">Delete An Employee</a>
+        	<br><a href="cashier.php">Display All Cashiers</a>
+        	<br><a href="groomer.php">Display All Groomers</a>
+        	<br><a href="stocker.php">Display All Stockers</a>
+        	<br><a href="addEmployee.php">Add New Employee</a>
+        	<br><a href="editEmployee.php">Edit An Employee</a>
+        	<br><a href="deleteEmployee.php">Delete An Employee</a>
         	
         	<h2>Stores and Businesses</h2>
         	<ul id="last">
