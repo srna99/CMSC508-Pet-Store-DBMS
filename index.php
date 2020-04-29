@@ -91,6 +91,7 @@
             	<br><a href="cashier.php">Display All Cashiers</a>
             	<br><a href="groomer.php">Display All Groomers</a>
             	<br><a href="stocker.php">Display All Stockers</a>
+            	<br><a href="trainer.php">Display All Trainers</a>
             	<br><a href="addEmployee.php">Add New Employee</a>
             	<br><a href="editEmployee.php">Edit An Employee</a>
             	<br><a href="deleteEmployee.php">Delete An Employee</a>
