@@ -23,7 +23,7 @@
               list-style: inside;
             }
             
-            a {
+            .links {
                 text-align: center;
             }
             
@@ -92,13 +92,15 @@
 <!--         	</ul> -->
         	
         	<h2>Personnel and Related Matters</h2>
-        	<a href="employee.php">Display All Employees</a>
-        	<br><a href="cashier.php">Display All Cashiers</a>
-        	<br><a href="groomer.php">Display All Groomers</a>
-        	<br><a href="stocker.php">Display All Stockers</a>
-        	<br><a href="addEmployee.php">Add New Employee</a>
-        	<br><a href="editEmployee.php">Edit An Employee</a>
-        	<br><a href="deleteEmployee.php">Delete An Employee</a>
+        	<div class="links">
+        		<a href="employee.php">Display All Employees</a>
+            	<br><a href="cashier.php">Display All Cashiers</a>
+            	<br><a href="groomer.php">Display All Groomers</a>
+            	<br><a href="stocker.php">Display All Stockers</a>
+            	<br><a href="addEmployee.php">Add New Employee</a>
+            	<br><a href="editEmployee.php">Edit An Employee</a>
+            	<br><a href="deleteEmployee.php">Delete An Employee</a>
+        	</div>
         	
         	<h2>Stores and Businesses</h2>
         	<ul id="last">
