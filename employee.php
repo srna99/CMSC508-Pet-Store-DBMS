@@ -31,6 +31,8 @@
         <?php
         require_once ('connection.php');
         
+        setlocale(LC_MONETARY, 'en_US');
+        
         // get all employees
         $stmt = $conn->prepare('select e_id, first_name, last_name, salary, birthdate, phone_number, address,
             	    (select concat(first_name, " ", last_name) from Employee where e_id = e.manager) as manager_name,

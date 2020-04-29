@@ -31,6 +31,8 @@
         <?php
         require_once ('connection.php');
         
+        setlocale(LC_MONETARY, 'en_US');
+        
         // get all transactions
         $stmt = $conn->prepare('select customer, pet_name, animal, price, date_bought from Pet_Transaction order by date_bought;');
         $stmt->execute();
@@ -52,7 +54,7 @@
             echo "<tr><td>$row[customer]</td>
             <td>$row[pet_name]</td>
             <td>$row[animal]</td>
-            <td>$row[price]</td>
+            <td>" . money_format("%.2n", $row[price]) . "</td>
             <td>$row[date_bought]</td></tr>";
         }
         
