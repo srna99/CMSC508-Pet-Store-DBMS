@@ -69,6 +69,7 @@
     	<ul>
     		<li><a href="employee.php">Display All Employees</a></li>
     		<li><a href="addEmployee.php">Add New Employee</a></li>
+    		<li><a href="deleteEmployee.php">Delete An Employee</a></li>
     	</ul>
     	
     	<h2>Stores and Businesses</h2>
