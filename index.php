@@ -18,6 +18,11 @@
                 margin-bottom: 0.3em;
             }
             
+            ul {
+              display: table;
+              margin: 0 auto;
+            }
+            
             #last {
                 padding-bottom: 100px;
             }
