@@ -56,7 +56,7 @@
             echo "</select>";
             echo "</td></tr>";
             
-            $stmt = $conn->prepare('select p_id, pet_name, animal, price, store from Pet order by animal, pet_name, store;');
+            $stmt = $conn->prepare('select p_id, pet_name, animal, price, store from Pet where available = 1 order by animal, pet_name, store;');
             $stmt->execute();
             
             // get all pets
