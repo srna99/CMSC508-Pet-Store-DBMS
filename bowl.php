@@ -45,7 +45,7 @@
         
         // show info from query
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>$row[opening_diameter]</td><td>$row[SN]</td><td>$row[substrate]</td></tr>";
+            echo "<tr><td>$row[SN]</td><td>$row[substrate]</td><td>$row[opening_diameter]</td></tr>";
         }
         
         echo "</tbody>";

@@ -74,6 +74,8 @@
 				<br>
     			<br><a href="bowl.php">Display All Bowls</a>
 				<br><a href="addBowl.php">Add New Bowl</a>
+				<br><a href="editBowl.php">Edit A Bowl</a>
+    			<br><a href="deleteBowl.php">Delete A Bowl</a>
     		</div>
     		
         	<h2>Customers</h2>

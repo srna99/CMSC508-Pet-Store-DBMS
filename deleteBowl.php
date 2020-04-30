@@ -26,23 +26,28 @@
 	
 	<body>
 		
-		<h1>Add New Bowl</h1>
+		<h1>Delete Bowl</h1>
 	
         <?php
         
         require_once ('connection.php');
 
-
-        // send post
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-
-            echo "<form method='post' action='addBowl.php'>";
+            
+            $stmt = $conn->prepare('select SN,opening_diameter,substrate from Bowl order by SN;');
+            $stmt->execute();
+            
+            echo "<form method='post' action='deleteBowl.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Serial Number</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
-            echo "<tr><td>Substrate</td><td><input name='substrate' type='text' size='10'></td></tr>";
-            echo "<tr><td>Opening Diameter</td><td><input name='opening_diameter' type='number' min='0 step='1' size='11'></td></tr>";
-            
+            echo "<tr><td>Serial Number</td><td>";
+           
+            // make dropdown menu
+            echo "<select name='SN'>";
+            echo "<option disabled selected value> -- select Bowl -- </option>";
+            while ($row = $stmt->fetch()) {
+                echo "<option value='$row[SN]'>$row[SN]: substrate: $row[substrate], opening diameter: $row[opening_diameter]</option>";
+            }
             
             echo "</select>";
             echo "</td></tr>";
@@ -58,16 +63,14 @@
             
             try {
                 
-                // insert into table
-                $stmt = $conn->prepare("insert into Bowl values (:SN,:substrate,:opening_diameter);");
+                // delete from table
+                $stmt = $conn->prepare("delete from Bowl where SN = :SN;");
                 
                 $stmt->bindValue(':SN', $_POST['SN']);
-                $stmt->bindValue(':substrate', $_POST['substrate']);
-                $stmt->bindValue(':opening_diameter', $_POST['opening_diameter']);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Bowl.";
+                echo "Successfully deleted Bedding.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
