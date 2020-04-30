@@ -71,6 +71,8 @@
     			<br><a href="addFood.php">Add New Food</a>
     			<br><a href="editFood.php">Edit A Food</a>
     			<br><a href="deleteFood.php">Delete A Food</a>
+				<br>
+    			<br><a href="bowl.php">Display All Bowls</a>
     		</div>
     		
         	<h2>Customers</h2>
