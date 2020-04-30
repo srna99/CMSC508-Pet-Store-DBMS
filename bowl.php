@@ -32,7 +32,7 @@
         require_once ('connection.php');
         
         // get all Bowls
-        $stmt = $conn->prepare('select open_diameter,SN,substrate from Bowl order by animal;');
+        $stmt = $conn->prepare('select open_diameter,SN,substrate from Bowl order by SN;');
         $stmt->execute();
         
         echo "<table>";

@@ -73,6 +73,7 @@
     			<br><a href="deleteFood.php">Delete A Food</a>
 				<br>
     			<br><a href="bowl.php">Display All Bowls</a>
+				<br><a href="addBowl.php">Add New Bowl</a>
     		</div>
     		
         	<h2>Customers</h2>
