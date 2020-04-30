@@ -70,7 +70,7 @@
             $row = $stmt->fetch();
             
             // display current info
-            echo "<form method='post' action='editBedding.php'>";
+            echo "<form method='post' action='editBowl.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Serial Number</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
