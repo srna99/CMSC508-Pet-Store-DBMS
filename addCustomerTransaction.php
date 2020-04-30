@@ -84,7 +84,7 @@
                 
                 $row = $get_price->fetch();
                 
-                $price = $row[price];
+                $price = $row['price'];
                 
                 // insert into table
                 $stmt = $conn->prepare("insert into Buys(customer, pet, price, date_bought) values (:customer, :pet, :price, curdate());");
