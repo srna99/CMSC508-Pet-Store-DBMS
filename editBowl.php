@@ -94,7 +94,7 @@
             try {
                 
                 // update Bedding with edits
-                $stmt = $conn->prepare("update Bowl set substrate = :substrate, opening_diameter = :opening_diameter, where SN = :SN;");
+                $stmt = $conn->prepare("update Bowl set substrate = :substrate, opening_diameter = :opening_diameter where SN = :SN;");
                 
                 $stmt->bindValue(':substrate', $_POST['substrate']);
                 $stmt->bindValue(':opening_diameter', $_POST['opening_diameter']);
