@@ -79,7 +79,7 @@
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Accessory.";
+                echo "Successfully added new Food.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
