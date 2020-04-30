@@ -34,7 +34,7 @@
         setlocale(LC_MONETARY, 'en_US');
         
         // get all transactions
-        $stmt = $conn->prepare('select customer, pet_name, animal, price, date_bought from Pet_Transaction;');
+        $stmt = $conn->prepare('select customer, pet_name, animal, price, date_bought from Pet_Transaction order by date_bought;');
         $stmt->execute();
         
         // make table

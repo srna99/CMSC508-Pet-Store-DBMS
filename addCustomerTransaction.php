@@ -87,7 +87,7 @@
                 $price = $row['price'];
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Buys(customer, pet, price, date_bought) values (:customer, :pet, :price, curdate());");
+                $stmt = $conn->prepare("insert into Buys(customer, pet, price, date_bought) values (:customer, :pet, :price, now());");
                 
                 $stmt->bindValue(':customer', $_POST['customer']);
                 $stmt->bindValue(':pet', $_POST['pet']);
