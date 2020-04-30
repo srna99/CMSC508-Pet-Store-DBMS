@@ -32,12 +32,12 @@
         require_once ('connection.php');
         
         // get all Bowls
-        $stmt = $conn->prepare('select open_diameter,SN,substrate from Bowl order by SN;');
+        $stmt = $conn->prepare('select opening_diameter,SN,substrate from Bowl order by SN;');
         $stmt->execute();
         
         echo "<table>";
         echo "<thead><tr>
-            <th>open_diameter</th>
+            <th>opening_diameter</th>
             <th>SN</th>
             <th>substrate</th>
             </tr></thead>";
@@ -45,7 +45,7 @@
         
         // show info from query
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>$row[open_diameter]</td><td>$row[SN]</td><td>$row[substrate]</td></tr>";
+            echo "<tr><td>$row[opening_diameter]</td><td>$row[SN]</td><td>$row[substrate]</td></tr>";
         }
         
         echo "</tbody>";
