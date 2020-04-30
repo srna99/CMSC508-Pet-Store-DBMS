@@ -32,6 +32,8 @@
         
         require_once ('connection.php');
         
+        setlocale(LC_MONETARY, 'en_US');
+        
         // first page
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
@@ -54,7 +56,7 @@
             echo "</select>";
             echo "</td></tr>";
             
-            $stmt = $conn->prepare('select p_id, pet_name, animal, store from Pet order by animal, pet_name, store;');
+            $stmt = $conn->prepare('select p_id, pet_name, animal, price, store from Pet order by animal, pet_name, store;');
             $stmt->execute();
             
             // get all pets
@@ -62,7 +64,7 @@
             echo "<select name='pet'>";
             
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[p_id]'>$row[pet_name] the $row[animal] at Store $row[store]</option>";
+                echo "<option value='$row[p_id]'>$row[pet_name] the $row[animal] at Store $row[store] for " . money_format("%.2n", $row["price"]) . "</option>";
             }
             
             // submit form button
@@ -76,11 +78,20 @@
             
             try {
                 
+                $get_price = $conn->prepare("select price from Pet where p_id = :p_id;");
+                $get_price->bindValue(":p_id", $_POST['pet']);
+                $get_price->execute();
+                
+                $row = $get_price->fetch();
+                
+                $price = $row[price];
+                
                 // insert into table
-                $stmt = $conn->prepare("insert into Buys(customer, pet, date_bought) values (:customer, :pet, curdate());");
+                $stmt = $conn->prepare("insert into Buys(customer, pet, price, date_bought) values (:customer, :pet, :price, curdate());");
                 
                 $stmt->bindValue(':customer', $_POST['customer']);
                 $stmt->bindValue(':pet', $_POST['pet']);
+                $stmt->bindValue(':price', $price);
                 
                 $stmt->execute();
                 
