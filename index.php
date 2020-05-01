@@ -118,6 +118,8 @@
                 	<br><a href="addGroomingAcc.php">Add New Grooming Accessory</a>
                 	<br><a href="addGroomingAccUse.php">Add Grooming Accessory Usage</a>
                 	<br><a href="deleteGroomingAcc.php">Delete A Grooming Accessory</a>
+                	<br>
+                	<br><a href="treatment.php">Display Treatment History</a>
             	</div>
             	
             	<h2>Stores and Businesses</h2>
