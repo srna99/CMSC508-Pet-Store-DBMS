@@ -44,19 +44,15 @@
             
             echo "<tr><td>Guard</td><td>";
             echo "<select name='guard'>";
-            
-            while ($row = $stmt->fetch()) {
-                echo "<option value='-1'>No guard</option>";
-                echo "<option value='#1'>#1</option>";
-                echo "<option value='#2'>#2</option>";
-                echo "<option value='#3'>#3</option>";
-                echo "<option value='#4'>#4</option>";
-                echo "<option value='#5'>#5</option>";
-                echo "<option value='#6'>#6</option>";
-                echo "<option value='#7'>#7</option>";
-                echo "<option value='#8'>#8</option>";
-            }
-            
+            echo "<option value='-1'>No guard</option>";
+            echo "<option value='#1'>#1</option>";
+            echo "<option value='#2'>#2</option>";
+            echo "<option value='#3'>#3</option>";
+            echo "<option value='#4'>#4</option>";
+            echo "<option value='#5'>#5</option>";
+            echo "<option value='#6'>#6</option>";
+            echo "<option value='#7'>#7</option>";
+            echo "<option value='#8'>#8</option>";
             echo "</select>";
             echo "</td></tr>";
             
