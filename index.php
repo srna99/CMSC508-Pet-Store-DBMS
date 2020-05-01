@@ -100,6 +100,8 @@
             	<br><a href="addEmployee.php">Add New Employee</a>
             	<br><a href="editEmployee.php">Edit An Employee</a>
             	<br><a href="deleteEmployee.php">Delete An Employee</a>
+            	<br>
+            	<br><a href="clipper.php">Display All Clippers</a>
         	</div>
         	
         	<h2>Stores and Businesses</h2>
