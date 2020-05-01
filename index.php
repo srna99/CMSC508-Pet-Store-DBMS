@@ -106,6 +106,8 @@
             	<br><a href="addClipper.php">Add New Clipper</a>
             	<br><a href="addClipperUse.php">Add Clipper Usage</a>
             	<br><a href="deleteClipper.php">Delete A Clipper</a>
+            	<br>
+            	<br><a href="groomingAcc.php">Display All Grooming Accessories</a>
         	</div>
         	
         	<h2>Stores and Businesses</h2>
