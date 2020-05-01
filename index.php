@@ -109,6 +109,7 @@
             	<br>
             	<br><a href="groomingAcc.php">Display All Grooming Accessories</a>
             	<br><a href="addGroomingAcc.php">Add New Grooming Accessory</a>
+            	<br><a href="deleteGroomingAcc.php">Delete A Grooming Accessory</a>
         	</div>
         	
         	<h2>Stores and Businesses</h2>
