@@ -85,7 +85,7 @@
         		<br><a href="editCustomer.php">Edit A Customer</a>
         		<br><a href="deleteCustomer.php">Delete A Customer</a>
         		<br>
-        		<br><a href="customerTransactions.php">Display All Customers' Transactions</a>
+        		<br><a href="customerTransactions.php">Display All Customer Transactions</a>
         		<br><a href="addCustomerTransaction.php">Add New Transaction</a>
         		<br><a href="customerVisited.php">Display All Stores Visited By A Customer</a>
         	</div>
@@ -102,6 +102,7 @@
             	<br><a href="deleteEmployee.php">Delete An Employee</a>
             	<br>
             	<br><a href="clipper.php">Display All Clippers</a>
+            	<br><a href="clipperUse.php">Display Clipper Usage History</a>
             	<br><a href="addClipper.php">Add New Clipper</a>
             	<br><a href="deleteClipper.php">Delete A Clipper</a>
         	</div>
