@@ -102,6 +102,7 @@
             	<br><a href="deleteEmployee.php">Delete An Employee</a>
             	<br>
             	<br><a href="clipper.php">Display All Clippers</a>
+            	<br><a href="addClipper.php">Add New Clipper</a>
         	</div>
         	
         	<h2>Stores and Businesses</h2>
