@@ -6,6 +6,7 @@
     	    #content {
                 max-width: 800px;
                 margin: auto;
+                padding-bottom: 100px;
                 display: flex;
             }
             
@@ -36,10 +37,6 @@
             a {
                 display: inline-block;
                 margin-bottom: 5px;
-            }
-            
-            #last {
-                padding-bottom: 100px;
             }
     	</style>
     </head>
@@ -122,7 +119,7 @@
             	</div>
             	
             	<h2>Stores and Businesses</h2>
-            	<div id="last" class="links">
+            	<div class="links">
             		
             	</div>
             </div>
