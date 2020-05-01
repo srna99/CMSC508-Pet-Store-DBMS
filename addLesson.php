@@ -55,7 +55,7 @@
             echo "</td></tr>";
             
             echo "<tr><td>Lesson type</td><td><input name='type' type='text' size='25' required></td></tr>";
-            echo "<tr><td>Scheduled date</td><td><input name='lesson_time' type='date' min=" . date('Y-m-d') . " required></td></tr>";
+            echo "<tr><td>Scheduled date</td><td><input name='lesson_time' type='datetime-local' min=" . date("Y-m-d H:i:s") . " required></td></tr>";
             echo "<tr><td>Capacity</td><td><input name='capacity' type='number' min='1' max='50' step='1' size='8'></td></tr>";
             
             echo "<tr><td>Animal</td><td>";
