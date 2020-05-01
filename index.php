@@ -62,12 +62,12 @@
     			<br><a href="editAccessory.php">Edit An Accessory</a>
     			<br><a href="deleteAccessory.php">Delete An Accessory</a>
     			<br>
-    			<br><a href="bedding.php">Display All Bedding</a>
+    			<br><a href="bedding.php">Display All Beddings</a>
     			<br><a href="addBedding.php">Add New Bedding</a>
     			<br><a href="editBedding.php">Edit A Bedding</a>
     			<br><a href="deleteBedding.php">Delete A Bedding</a>
     			<br>
-    			<br><a href="food.php">Display All Food</a>
+    			<br><a href="food.php">Display All Foods</a>
     			<br><a href="addFood.php">Add New Food</a>
     			<br><a href="editFood.php">Edit A Food</a>
     			<br><a href="deleteFood.php">Delete A Food</a>
