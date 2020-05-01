@@ -32,6 +32,8 @@
         
         require_once ('connection.php');
         
+        date_default_timezone_set("EST");
+        
         // get all treatments
         $stmt = $conn->prepare('select trainer, lesson, scheduled_date, capacity, animal, date_added from Lesson_History order by date_added;');
         $stmt->execute();
