@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Add New Clipper Usage Record</h1>
+		<h1>Add New Grooming Accessory Usage Record</h1>
 	
         <?php
         
@@ -36,7 +36,7 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            echo "<form method='post' action='addClipperUse.php'>";
+            echo "<form method='post' action='addGroomingAccUse.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Groomer</td><td>";
@@ -54,16 +54,16 @@
             echo "</select>";
             echo "</td></tr>";
             
-            echo "<tr><td>Clipper</td><td>";
+            echo "<tr><td>Grooming Accessory</td><td>";
             
-            $stmt = $conn->prepare('select SN, size, brand, animal from Clipper order by SN;');
+            $stmt = $conn->prepare('select SN, type_of, animal from Grooming_Accessory order by SN;');
             $stmt->execute();
             
-            // get all clippers
-            echo "<select name='clipper'>";
+            // get all grooming acc
+            echo "<select name='grooming_acc'>";
             
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: Size $row[size] for $row[animal] from $row[brand]</option>";
+                echo "<option value='$row[SN]'>$row[SN]: $row[type_of] for $row[animal]</option>";
             }
             
             echo "</select>";
@@ -81,14 +81,14 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Groomer_Clip values (:groomer, :clipper, now());");
+                $stmt = $conn->prepare("insert into Groomer_Grooming_Acc values (:groomer, :grooming_acc, now());");
                 
                 $stmt->bindValue(':groomer', $_POST['groomer']);
-                $stmt->bindValue(':clipper', $_POST['clipper']);
+                $stmt->bindValue(':grooming_acc', $_POST['grooming_acc']);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new clipper usage record.";
+                echo "Successfully added new groomer accessory usage record.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
