@@ -121,6 +121,8 @@
                 	<br>
                 	<br><a href="treatment.php">Display Treatment History</a>
                 	<br><a href="addTreatment.php">Add New Treatment Record</a>
+                	<br>
+                	<br><a href="lesson.php">Display Lesson History</a>
             	</div>
             	
             	<h2>Stores and Businesses</h2>
