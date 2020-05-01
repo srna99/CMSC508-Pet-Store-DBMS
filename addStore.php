@@ -79,7 +79,7 @@
                 
                 $store = $conn->lastInsertId();
                 
-                $stmt = $conn->prepare("update Employee set manager = null and store = :store where e_id = :e_id;");
+                $stmt = $conn->prepare("update Employee set manager = null, store = :store where e_id = :e_id;");
                 
                 $stmt->bindValue(":store", $store);
                 $stmt->bindValue(":e_id", $_POST['manager']);
