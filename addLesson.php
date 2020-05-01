@@ -32,6 +32,8 @@
         
         require_once ('connection.php');
         
+        date_default_timezone_set("EST");
+        
         // first page
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
