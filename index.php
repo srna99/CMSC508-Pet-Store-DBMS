@@ -4,8 +4,8 @@
     	
     	<style>
     	    #content {
-/*               max-width: 500px; */
-/*               margin: auto; */
+                max-width: 800px;
+                margin: auto;
                 display: flex;
             }
             
@@ -14,12 +14,6 @@
                 padding: 10px;
             }
             
-            @media screen and (max-width: 600px) {
-              .column {
-                width: 100%;
-              }
-            }
-    	    
     	    h1 {
                 text-align: center;
                 margin-top: 0.8em;
@@ -52,9 +46,9 @@
     
     <body>
     	<div id="content">
+    		<h1>Pet Store DBMS</h1>
+    	
     		<div class="column">
-          		<h1>Pet Store DBMS</h1>
-          		
             	<h2>Pets</h2>
             	<div class="links">
             		<a href="animal.php">Display All Types of Animals</a>
