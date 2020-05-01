@@ -120,6 +120,7 @@
                 	<br><a href="deleteGroomingAcc.php">Delete A Grooming Accessory</a>
                 	<br>
                 	<br><a href="treatment.php">Display Treatment History</a>
+                	<br><a href="addTreatment.php">Add New Treatment Record</a>
             	</div>
             	
             	<h2>Stores and Businesses</h2>
