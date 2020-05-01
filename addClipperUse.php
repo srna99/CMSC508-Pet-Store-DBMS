@@ -88,7 +88,7 @@
                 
                 $stmt->execute();
                 
-                echo "Successfully added new pet.";
+                echo "Successfully added new clipper usage record.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
