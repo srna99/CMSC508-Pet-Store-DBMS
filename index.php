@@ -104,6 +104,7 @@
             	<br><a href="clipper.php">Display All Clippers</a>
             	<br><a href="clipperUse.php">Display Clipper Usage History</a>
             	<br><a href="addClipper.php">Add New Clipper</a>
+            	<br><a href="addClipperUse.php">Add Clipper Usage</a>
             	<br><a href="deleteClipper.php">Delete A Clipper</a>
         	</div>
         	
