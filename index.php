@@ -129,6 +129,7 @@
             	<h2>Stores and Businesses</h2>
             	<div class="links">
             		<a href="store.php">Display All Stores</a>
+            		<br><a href="addStore.php">Add New Store Location</a>
             	</div>
             </div>
     	</div>
