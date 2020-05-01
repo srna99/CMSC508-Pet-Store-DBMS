@@ -53,9 +53,15 @@
         while ($row = $stmt->fetch()) {
             echo "<tr><td>$row[trainer]</td>
             <td>$row[lesson]</td>
-            <td>$row[scheduled_date]</td>
-            <td>$row[capacity]</td>
-            <td>$row[animal]</td>
+            <td>$row[scheduled_date]</td>";
+            
+            if ($row["capacity"] == null) {
+                echo '<td>N/A</td>';
+            } else {
+                echo "<td>" . $row["capacity"] . "</td>";
+            }
+            
+            echo "<td>$row[animal]</td>
             <td>$row[date_added]</td></tr>";
         }
         

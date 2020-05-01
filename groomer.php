@@ -47,9 +47,16 @@
         
         // info from query
         while ($row = $stmt->fetch()) {
+            
             echo "<tr><td>$row[e_id]</td>
-            <td>$row[name]</td>
-            <td>$row[specialty]</td></tr>";
+            <td>$row[name]</td>";
+            
+            if ($row["specialty"] == null) {
+                echo '<td>N/A</td>';
+            } else {
+                echo "<td>" . $row["specialty"] . "</td>";
+            }
+            
         }
         
         echo "</tbody>";

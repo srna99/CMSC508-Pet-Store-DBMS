@@ -48,10 +48,17 @@
         
         // info from query
         while ($row = $stmt->fetch()) {
+            
             echo "<tr><td>$row[e_id]</td>
             <td>$row[name]</td>
-            <td>$row[employment_status]</td>
-            <td>$row[product_to_stock]</td></tr>";
+            <td>$row[employment_status]</td>";
+            
+            if ($row["product_to_stock"] == null) {
+                echo '<td>N/A</td>';
+            } else {
+                echo "<td>" . $row["product_to_stock"] . "</td>";
+            }
+            
         }
         
         echo "</tbody>";

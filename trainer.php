@@ -49,9 +49,15 @@
         // info from query
         while ($row = $stmt->fetch()) {
             echo "<tr><td>$row[e_id]</td>
-            <td>$row[name]</td>
-            <td>$row[max_lessons_per_day]</td>
-            <td>$row[animal]</td></tr>";
+            <td>$row[name]</td>";
+
+            if ($row["max_lessons_per_day"] == null) {
+                echo '<td>N/A</td>';
+            } else {
+                echo "<td>" . $row["max_lessons_per_day"] . "</td>";
+            }
+
+            echo "<td>$row[animal]</td></tr>";
         }
         
         echo "</tbody>";
