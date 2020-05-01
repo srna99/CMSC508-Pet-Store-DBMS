@@ -103,6 +103,7 @@
             	<br>
             	<br><a href="clipper.php">Display All Clippers</a>
             	<br><a href="addClipper.php">Add New Clipper</a>
+            	<br><a href="deleteClipper.php">Delete A Clipper</a>
         	</div>
         	
         	<h2>Stores and Businesses</h2>
