@@ -45,9 +45,9 @@
     </head>
     
     <body>
-    	<div id="content">
-    		<h1>Pet Store DBMS</h1>
+    	<h1>Pet Store DBMS</h1>
     	
+    	<div id="content">
     		<div class="column">
             	<h2>Pets</h2>
             	<div class="links">
