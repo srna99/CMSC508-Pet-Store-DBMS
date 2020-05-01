@@ -79,6 +79,11 @@
                 
                 $stmt = $conn->prepare("update Employee set manager = null and store = :s_id where e_id = :e_id;");
                 
+                $stmt->bindValue(":s_id", $_POST['s_id']);
+                $stmt->bindValue(":e_id", $_POST['e_id']);
+                
+                $stmt->execute();
+                
                 echo "Successfully added new store location.";
                 
             } catch (PDOException $e) {
