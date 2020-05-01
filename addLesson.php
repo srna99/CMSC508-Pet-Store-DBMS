@@ -32,7 +32,7 @@
         
         require_once ('connection.php');
         
-        date_default_timezone_set("EST");
+        date_default_timezone_set('America/New_York');
         
         // first page
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
