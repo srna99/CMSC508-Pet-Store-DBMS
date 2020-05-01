@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Add New Pet</h1>
+		<h1>Add New Clipper Usage Record</h1>
 	
         <?php
         
