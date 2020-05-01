@@ -74,7 +74,6 @@
                 
                 $stmt->bindValue(':address', trim($_POST['address']));
                 $stmt->bindValue(':manager', $_POST['manager']);
-                $stmt->bindValue(':store', $_POST['store']);
                 
                 $stmt->execute();
                 
