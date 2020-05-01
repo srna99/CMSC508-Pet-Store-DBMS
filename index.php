@@ -6,6 +6,7 @@
     	    #content {
 /*               max-width: 500px; */
 /*               margin: auto; */
+                display: flex;
             }
             
             .column {
