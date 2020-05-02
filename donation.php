@@ -45,7 +45,6 @@
             <th>Company</th>
             <th>Store</th>
             <th>Amount</th>
-            <th>Price</th>
             <th>Date received</th>
             </tr></thead>";
         echo "<tbody>";
