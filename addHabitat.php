@@ -158,7 +158,8 @@
                 elseif ($_SESSION["addHabitat_type"] == "Cage") {
                     
                     $c_stmt = $conn->prepare("insert into Cage (SN, type_of) values (:SN, :type_of);");
-                    $b_stmt->bindValue(':SN', trim($_POST['SN']));
+
+                    $c_stmt->bindValue(':SN', trim($_POST['SN']));
                     $c_stmt->bindValue(':type_of', $_POST['type_of']);
 
                     $c_stmt->execute();
@@ -168,7 +169,7 @@
                     
                     $t_stmt = $conn->prepare("insert into Tank (SN, substrate, light) values (:SN, :substrate, :light);");
                     
-                    $b_stmt->bindValue(':SN', trim($_POST['SN']));
+                    $t_stmt->bindValue(':SN', trim($_POST['SN']));
                     $t_stmt->bindValue(':substrate', $_POST['substrate']);
                     $t_stmt->bindValue(':light', $_POST['light']);
                     
