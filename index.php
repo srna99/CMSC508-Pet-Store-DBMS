@@ -142,7 +142,18 @@
             	<div class="links">
             		<a href="store.php">Display All Stores</a>
             		<br><a href="addStore.php">Add New Store Location</a>
+            		<br><a href="storeAddress.php">Change Store's Address</a>
+            		<br><a href="storeManager.php">Update Store's Manager</a>
             		<br><a href="deleteStore.php">Close A Store Location</a>
+            		<br>
+                	<br><a href="shelter.php">Display All Shelters Collaborated With</a>
+                	<br><a href="addShelter.php">Add New Shelter</a>
+                	<br><a href="editShelter.php">Edit A Shelter</a>
+                	<br><a href="deleteShelter.php">Delete A Shelter</a>
+                	<br><a href="representative.php">Display All Shelter Representatives</a>
+                	<br><a href="addRepresentative.php">Add New Representative</a>
+                	<br><a href="editRepresentative.php">Edit A Representative</a>
+                	<br><a href="deleteRepresentative.php">Delete A Representative</a>
             	</div>
             </div>
     	</div>
