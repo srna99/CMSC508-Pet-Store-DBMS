@@ -32,7 +32,7 @@
         require_once ('connection.php');
         
         // get all Habitat
-        $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat order by animal;');
+        $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat order by SN;');
         $stmt->execute();
         
         echo "<table>";
