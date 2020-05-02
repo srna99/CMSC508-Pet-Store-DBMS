@@ -144,7 +144,7 @@
                 	<br><a href="addEmployee.php">Add New Employee</a>
                 	<br><a href="editEmployee.php">Edit An Employee</a>
                 	<br><a href="increaseSalaryManager.php">Increase Salary of Managers</a>
-                	<br><a href="increaseSalarySalary.php">Increase Salary of Employees By Store</a>
+                	<br><a href="increaseSalaryStore.php">Increase Salary of Employees By Store</a>
                 	<br><a href="deleteEmployee.php">Delete An Employee</a>
                 	<br>
                 	<br><a href="clipper.php">Display All Clippers</a>
