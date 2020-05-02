@@ -59,7 +59,7 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Light values (:SN,:brand,:size,:type_of);");
+                $stmt = $conn->prepare("insert into Filter values (:SN,:brand,:size,:type_of);");
                 
                 $stmt->bindValue(':SN', $_POST['SN']);
                 $stmt->bindValue(':brand', $_POST['brand']);
