@@ -136,6 +136,7 @@
             	<h2>Personnel and Related Matters</h2>
             	<div class="links">
             		<a href="employee.php">Display All Employees</a>
+            		<br><a href="manager.php">Display All Store Managers</a>
                 	<br><a href="cashier.php">Display All Cashiers</a>
                 	<br><a href="groomer.php">Display All Groomers</a>
                 	<br><a href="stocker.php">Display All Stockers</a>
