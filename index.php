@@ -141,6 +141,7 @@
                 	<br><a href="representative.php">Display All Shelter Representatives</a>
                 	<br><a href="addRepresentative.php">Add New Representative</a>
                 	<br><a href="editRepresentative.php">Edit A Representative</a>
+                	<br><a href="deleteRepresentative.php">Delete A Representative</a>
             	</div>
             </div>
     	</div>
