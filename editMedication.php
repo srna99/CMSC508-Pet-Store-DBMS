@@ -37,7 +37,7 @@
         // first page
         if (!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select SN,type_of,size,animal from Medication order by SN;');
+            $stmt = $conn->prepare('select SN,type_of,animal from Medication order by SN;');
             $stmt->execute();
             
             // select an Medication to get to current related info
