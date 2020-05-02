@@ -122,19 +122,23 @@
                 
                 $store = $conn->lastInsertId();
                 
-                $stmt = $conn->prepare("update Employee set manager = null, store = :store where e_id = :e_id;");
-                
-                $stmt->bindValue(":store", $_SESSION["storeManager_s_id"]);
-                $stmt->bindValue(":e_id", $_POST['manager']);
-                
-                $stmt->execute();
-                
-                $stmt = $conn->prepare("update Employee set manager = :manager where e_id = :e_id;");
-                
-                $stmt->bindValue(":e_id", $_SESSION["storeManager_current_manager"]);
-                $stmt->bindValue(":manager", $_POST['manager']);
-                
-                $stmt->execute();
+                if ($_POST['manager'] != $_SESSION["storeManager_current_manager"]) {
+                    
+                    $stmt = $conn->prepare("update Employee set manager = null, store = :store where e_id = :e_id;");
+                    
+                    $stmt->bindValue(":store", $_SESSION["storeManager_s_id"]);
+                    $stmt->bindValue(":e_id", $_POST['manager']);
+                    
+                    $stmt->execute();
+                    
+                    $stmt = $conn->prepare("update Employee set manager = :manager where e_id = :e_id;");
+                    
+                    $stmt->bindValue(":e_id", $_SESSION["storeManager_current_manager"]);
+                    $stmt->bindValue(":manager", $_POST['manager']);
+                    
+                    $stmt->execute();
+                    
+                }
                 
                 echo "Successfully updated store.";
                 
