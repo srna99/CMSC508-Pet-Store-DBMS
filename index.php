@@ -130,6 +130,7 @@
             	<div class="links">
             		<a href="store.php">Display All Stores</a>
             		<br><a href="addStore.php">Add New Store Location</a>
+            		<br><a href="storeAddress.php">Change Store's Address</a>
             		<br><a href="deleteStore.php">Close A Store Location</a>
             	</div>
             </div>
