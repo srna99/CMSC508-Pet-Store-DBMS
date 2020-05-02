@@ -124,7 +124,7 @@
                 
                 $stmt = $conn->prepare("update Employee set manager = null, store = :store where e_id = :e_id;");
                 
-                $stmt->bindValue(":store", $store);
+                $stmt->bindValue(":store", $_SESSION["storeManager_s_id"]);
                 $stmt->bindValue(":e_id", $_POST['manager']);
                 
                 $stmt->execute();
