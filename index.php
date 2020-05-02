@@ -81,10 +81,15 @@
         			<br><a href="editMedication.php">Edit A Medication</a>
 					<br><a href="deleteMedication.php">Delete A Medication</a>
 					<br>
-        			<br><a href="litter.php">Display All Litter</a>
-        			<br><a href="addLitter.php">Add New Litter</a>
-        			<br><a href="editLitter.php">Edit A Litter</a>
-					<br><a href="deleteLitter.php">Delete A Litter</a>
+        			<br><a href="vitamin.php">Display All Vitamin</a>
+        			<br><a href="addVitamin.php">Add New Vitamin</a>
+        			<br><a href="editVitamin.php">Edit A Vitamin</a>
+					<br><a href="deleteVitamin.php">Delete A Vitamin</a>
+					<br>
+        			<br><a href="toy.php">Display All Toy</a>
+        			<br><a href="addToy.php">Add New Toy</a>
+        			<br><a href="editToy.php">Edit A Toy</a>
+					<br><a href="deleteToy.php">Delete A Toy</a>
 					<br>
         			<br><a href="leash.php">Display All Leash</a>
         			<br><a href="addLeash.php">Add New Leash</a>
