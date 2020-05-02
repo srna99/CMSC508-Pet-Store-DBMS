@@ -184,7 +184,9 @@
                 	<br><a href="deleteRepresentative.php">Delete A Representative</a>
                 	<br>
                 	<br><a href="company.php">Display All Companies That Donated</a>
+                	<br><a href="donation.php">Display All Donations Received</a>
                 	<br><a href="addCompany.php">Add New Company</a>
+                	<br><a href="addDonation.php">Add New Donation</a>
                 	<br><a href="editCompany.php">Edit A Company</a>
                 	<br><a href="deleteCompany.php">Delete A Company</a>
             	</div>
