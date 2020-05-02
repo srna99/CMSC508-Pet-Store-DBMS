@@ -76,6 +76,11 @@
         			<br><a href="editFood.php">Edit A Food</a>
         			<br><a href="deleteFood.php">Delete A Food</a>
 					<br>
+					<br><a href="collar.php">Display All Collars</a>
+        			<br><a href="addCollar.php">Add New Collar</a>
+        			<br><a href="editCollar.php">Edit A Collar</a>
+        			<br><a href="deleteCollar.php">Delete A Collar</a>
+					<br>
 					<br><a href="light.php">Display All Lights</a>
         			<br><a href="addLight.php">Add New Light</a>
         			<br><a href="editLight.php">Edit A Light</a>
@@ -91,6 +96,7 @@
         			<br><a href="tank.php">Display All Tanks</a>
 					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="addHabitat.php">Add a Habitat</a>
+					<br><a href="deleteHabitat.php">Delete A Habitat</a>
     				<!-- <br><a href="addBowl.php">Add New Bowl</a>
     				<br><a href="editBowl.php">Edit A Bowl</a>
         			<br><a href="deleteBowl.php">Delete A Bowl</a> -->
