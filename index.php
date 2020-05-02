@@ -74,7 +74,27 @@
         			<br><a href="food.php">Display All Foods</a>
         			<br><a href="addFood.php">Add New Food</a>
         			<br><a href="editFood.php">Edit A Food</a>
-        			<br><a href="deleteFood.php">Delete A Food</a>
+					<br><a href="deleteFood.php">Delete A Food</a>
+					<br>
+        			<br><a href="medication.php">Display All Medications</a>
+        			<br><a href="addMedication.php">Add New Medication</a>
+        			<br><a href="editMedication.php">Edit A Medication</a>
+					<br><a href="deleteMedication.php">Delete A Medication</a>
+					<br>
+        			<br><a href="litter.php">Display All Litter</a>
+        			<br><a href="addLitter.php">Add New Litter</a>
+        			<br><a href="editLitter.php">Edit A Litter</a>
+					<br><a href="deleteLitter.php">Delete A Litter</a>
+					<br>
+        			<br><a href="leash.php">Display All Leash</a>
+        			<br><a href="addLeash.php">Add New Leash</a>
+        			<br><a href="editLeash.php">Edit A Leash</a>
+					<br><a href="deleteLeash.php">Delete A Leash</a>
+					<br>
+        			<br><a href="crate.php">Display All Crate</a>
+        			<br><a href="addCrate.php">Add New Crate</a>
+        			<br><a href="editCrate.php">Edit A Crate</a>
+        			<br><a href="deleteCrate.php">Delete A Crate</a>
 					<br>
 					<br><a href="collar.php">Display All Collars</a>
         			<br><a href="addCollar.php">Add New Collar</a>
@@ -91,15 +111,12 @@
         			<br><a href="editFilter.php">Edit A Filter</a>
         			<br><a href="deleteFilter.php">Delete A Filter</a>
 					<br>
+					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="bowl.php">Display All Bowls</a>
         			<br><a href="cage.php">Display All Cages</a>
         			<br><a href="tank.php">Display All Tanks</a>
-					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="addHabitat.php">Add a Habitat</a>
 					<br><a href="deleteHabitat.php">Delete A Habitat</a>
-    				<!-- <br><a href="addBowl.php">Add New Bowl</a>
-    				<br><a href="editBowl.php">Edit A Bowl</a>
-        			<br><a href="deleteBowl.php">Delete A Bowl</a> -->
         		</div>
         	</div>
         		
