@@ -65,7 +65,7 @@
             $s_id = $_GET["s_id"];
             
             // get related info from pk
-            $stmt = $conn->prepare('select e_id from Store where s_id = :s_id;');
+            $stmt = $conn->prepare('select manager as current_manager from Store where s_id = :s_id;');
             $stmt->bindValue(':s_id', $s_id);
             
             $stmt->execute();
@@ -80,7 +80,7 @@
             
             $m_stmt = $conn->prepare('select e_id, concat(first_name, " ", last_name) as name, store from Employee 
                             where (e_id not in (select manager from Store) or e_id = :e_id) and e_id not in (select e_id from Cashier) and e_id not in (select e_id from Groomer) and e_id not in (select e_id from Stocker) and e_id not in (select e_id from Trainer);');
-            $m_stmt->bindValue(":e_id", $row['e_id']);
+            $m_stmt->bindValue(":e_id", $row['current_manager']);
             $m_stmt->execute();
             
             // get all emp
@@ -88,7 +88,7 @@
             
             while ($m_row = $m_stmt->fetch()) {
                 
-                if ($m_row['e_id'] == $row['e_id']){
+                if ($m_row['e_id'] == $row['current_manager']){
                     echo "<option value='$m_row[e_id]' selected>$m_row[name] at Store $m_row[store]</option>";
                 } else {
                     echo "<option value='$m_row[e_id]'>$m_row[name] at Store $m_row[store]</option>";
@@ -106,7 +106,7 @@
             echo "</form>";
             
             $_SESSION["storeManager_s_id"] = $s_id; 
-            $_SESSION["storeManager_e_id"] = $row['e_id']; 
+            $_SESSION["storeManager_current_manager"] = $row['current_manager']; 
             
         } else { // after submitting form
             
@@ -115,7 +115,7 @@
                 // update store with edits
                 $stmt = $conn->prepare("update Store set manager = :manager where s_id = :s_id;");
                 
-                $stmt->bindValue(':manager', trim($_POST['manager']));
+                $stmt->bindValue(':manager', $_POST['manager']);
                 $stmt->bindValue(':s_id', $_SESSION["storeManager_s_id"]);
                 
                 $stmt->execute();
@@ -131,7 +131,7 @@
                 
                 $stmt = $conn->prepare("update Employee set manager = :manager where e_id = :e_id;");
                 
-                $stmt->bindValue(":e_id", $_SESSION["storeManager_e_id"]);
+                $stmt->bindValue(":e_id", $_SESSION["storeManager_current_manager"]);
                 $stmt->bindValue(":manager", $_POST['manager']);
                 
                 $stmt->execute();
@@ -144,7 +144,7 @@
             }
             
             unset ($_SESSION["storeManager_s_id"]);
-            unset ($_SESSION["storeManager_e_id"]);
+            unset ($_SESSION["storeManager_current_manager"]);
             
         }
         
