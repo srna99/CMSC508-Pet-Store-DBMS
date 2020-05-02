@@ -73,7 +73,7 @@
             $row = $stmt->fetch();
             
             // display current info
-            echo "<form method='post' action='editPet.php'>";
+            echo "<form method='post' action='editCompany.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Company name</td><td><input name='company_name' type='text' size='25' value='$row[company_name]' required></td></tr>";
