@@ -40,9 +40,9 @@
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
+            echo "<tr><td>Type</td><td><input name='type_of' type='text' size='10'></td></tr>";
             echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
             echo "<tr><td>Size</td><td><input name='size' type='number' min='1' step='1' size='11'></td></tr>";
-            echo "<tr><td>Type</td><td><input name='type_of' type='text' size='10'></td></tr>";
             
             echo "</select>";
             echo "</td></tr>";
@@ -59,12 +59,12 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Filter values (:SN,:brand,:size,:type_of);");
+                $stmt = $conn->prepare("insert into Filter values (:SN,:type_of,:brand,:size);");
                 
                 $stmt->bindValue(':SN', $_POST['SN']);
+                $stmt->bindValue(':type_of', $_POST['type_of']);
                 $stmt->bindValue(':brand', $_POST['brand']);
                 $stmt->bindValue(':size', $_POST['size']);
-                $stmt->bindValue(':type_of', $_POST['type_of']);
                 
                 $stmt->execute();
                 
