@@ -176,9 +176,19 @@
                 	<br><a href="editShelter.php">Edit A Shelter</a>
                 	<br><a href="deleteShelter.php">Delete A Shelter</a>
                 	<br><a href="representative.php">Display All Shelter Representatives</a>
+                	<br><a href="sendRepresentative.php">Display All Representatives By Store</a>
+                	<br><a href="addSendRepresentative.php">Associate A Representative With Store</a>
+                	<br><a href="deleteSendRepresentative.php">Disassociate A Representative From Store</a>
                 	<br><a href="addRepresentative.php">Add New Representative</a>
                 	<br><a href="editRepresentative.php">Edit A Representative</a>
                 	<br><a href="deleteRepresentative.php">Delete A Representative</a>
+                	<br>
+                	<br><a href="company.php">Display All Companies That Donated</a>
+                	<br><a href="donation.php">Display All Donations Received</a>
+                	<br><a href="addCompany.php">Add New Company</a>
+                	<br><a href="addDonation.php">Add New Donation</a>
+                	<br><a href="editCompany.php">Edit A Company</a>
+                	<br><a href="deleteCompany.php">Delete A Company</a>
             	</div>
             </div>
     	</div>
