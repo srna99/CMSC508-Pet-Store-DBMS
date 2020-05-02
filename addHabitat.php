@@ -154,7 +154,7 @@
                     
                     $b_stmt = $conn->prepare("insert into Bowl (SN,substrate,opening_diameter) values (:SN, :substrate, :opening_diameter);");
                     
-                    $b_stmt->bindValue(':SN', $_SESSION["SN"]);
+                    $b_stmt->bindValue(':SN', trim($_POST['SN']));
                     $b_stmt->bindValue(':substrate', $_POST['substrate']);
                     $b_stmt->bindValue(':opening_diameter', $_POST['opening_diameter']);
 
