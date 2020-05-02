@@ -62,7 +62,7 @@
             $SN = $_GET["SN"];
             
             // get related info from pk
-            $stmt = $conn->prepare('select SN, type_of,quantity,price,animal from Medication where SN = :SN;');
+            $stmt = $conn->prepare('select SN, type_of,price,quantity,animal from Medication where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
             
             $stmt->execute();
@@ -74,9 +74,9 @@
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Serial Number</td><td>$row[SN]</td></tr>";
+            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20' required></td></tr>";
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='7' required></td></tr>";
             echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='11' required></td></tr>";
-            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20' required></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
             $stmt = $conn->prepare("SELECT classification FROM Animal");
