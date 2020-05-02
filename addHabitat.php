@@ -65,7 +65,7 @@
             echo "<tr><td>Serial Number</td><td><input name='SN' type='number' min='1' step='1' size='7' required></td></tr>";
             echo "<tr><td>Volume</td><td><input name='volume' type='number' min='1' step='1' size='11' required></td></tr>";
             echo "<tr><td>Capacity</td><td><input name='capacity' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
-            echo "<tr><td>Salary</td><td><input name='price' type='number' min='0.01' max='999999.99' step='0.01' size='8' value='0.00' required></td></tr>";
+            echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' max='999999.99' step='0.01' size='8' value='0.00' required></td></tr>";
             echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
             
 
@@ -143,7 +143,7 @@
                 // insert into appropriate tables
                 if ($_SESSION["addHabitat_type"] == "Bowl") {
                     
-                    $b_stmt = $conn->prepare("insert into Cashier(SN,substrate,opening_diameter) values (:prev_id, :substrate, :opening_diameter);");
+                    $b_stmt = $conn->prepare("insert into Bowl (SN,substrate,opening_diameter) values (:prev_id, :substrate, :opening_diameter);");
                     
                     $b_stmt->bindValue(':prev_id', $_SESSION["addHabitat_prev_id"]);
                     $b_stmt->bindValue(':substrate', $_POST['substrate']);
@@ -163,7 +163,7 @@
                 } 
                 elseif ($_SESSION["addHabitat_type"] == "Tank") {
                     
-                    $t_stmt = $conn->prepare("insert into Stocker(SN, light, substrate) values (:prev_id, :substrate, :product_to_stock);");
+                    $t_stmt = $conn->prepare("insert into Tank (SN, light, substrate) values (:prev_id, :substrate, :product_to_stock);");
                     
                     $t_stmt->bindValue(':prev_id', $_SESSION["addHabitat_prev_id"]);
                     $t_stmt->bindValue(':light', $_POST['light']);
