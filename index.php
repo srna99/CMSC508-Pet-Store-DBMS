@@ -75,11 +75,23 @@
         			<br><a href="addFood.php">Add New Food</a>
         			<br><a href="editFood.php">Edit A Food</a>
         			<br><a href="deleteFood.php">Delete A Food</a>
-    				<br>
+					<br>
+					<br><a href="light.php">Display All Lights</a>
+        			<br><a href="addLight.php">Add New Light</a>
+        			<br><a href="editLight.php">Edit A Light</a>
+        			<br><a href="deleteLight.php">Delete A Light</a>
+					<br>
+					<br><a href="filter.php">Display All Filters</a>
+        			<br><a href="addFilter.php">Add New Filter</a>
+        			<br><a href="editFilter.php">Edit A Filter</a>
+        			<br><a href="deleteFilter.php">Delete A Filter</a>
+					<br>
+					<br><a href="habitat.php">Display All Habitats</a>
+					<br><a href="addHabitat.php">Add a Habitat</a>
         			<br><a href="bowl.php">Display All Bowls</a>
-    				<br><a href="addBowl.php">Add New Bowl</a>
+    				<!-- <br><a href="addBowl.php">Add New Bowl</a>
     				<br><a href="editBowl.php">Edit A Bowl</a>
-        			<br><a href="deleteBowl.php">Delete A Bowl</a>
+        			<br><a href="deleteBowl.php">Delete A Bowl</a> -->
         		</div>
         	</div>
         		
