@@ -73,7 +73,7 @@
             $row = $stmt->fetch();
             
             // display current info
-            echo "<form method='post' action='storeAddress.php'>";
+            echo "<form method='post' action='storeManager.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Change manager to</td><td>";
