@@ -41,7 +41,7 @@
             echo "<tbody>";
             echo "<tr><td>Representative</td><td>";
             
-            $stmt = $conn->prepare('select r_id, concat(first_name, " ", last_name) as name, (select shelter_name from Shelter where s_id = r.shelter) as shelter from Representative order by name;');
+            $stmt = $conn->prepare('select r_id, concat(first_name, " ", last_name) as name, (select shelter_name from Shelter where s_id = shelter) as shelter from Representative order by name;');
             $stmt->execute();
             
             // get all reps
