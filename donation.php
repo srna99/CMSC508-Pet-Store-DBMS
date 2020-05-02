@@ -34,7 +34,7 @@
         setlocale(LC_MONETARY, 'en_US');
         
         // get all pets
-        $stmt = $conn->prepare('select d_id, (select company_name from Company where c_id = company) as company, store, amount, date_donated from Donates;');
+        $stmt = $conn->prepare('select d_id, (select company_name from Company where c_id = company) as company, store, amount, date_donated from Donates order by date_donated;');
         $stmt->execute();
         
         // make table
