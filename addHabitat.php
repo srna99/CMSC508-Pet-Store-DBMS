@@ -67,43 +67,41 @@
             echo "<tr><td>Capacity</td><td><input name='capacity' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' max='999999.99' step='0.01' size='8' value='0.00' required></td></tr>";
             echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
-            
-
-            
+                        
             echo "</select>";
             echo "</td></tr>";
             
             if ($type == "Bowl") {
 
                 echo "<tr><td>Opening Diameter</td><td><input name='opening_diameter' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
-
-                // echo "<option value='SN'>Serial Number</option>";
-                // echo "<option value='substrate'>Substrate</option>";
+                echo "<tr><td>Substrate</td><td>";
                 echo "<select name='substrate'>";
-            
+                echo "<option disabled selected value> -- select an Substrate type -- </option>";
                 echo "<option value='sand'>Sand</option>";
                 echo "<option value='gravel'>Gravel</option>";
                 echo "<option value='dirt'>Dirt</option>";
                 echo "<option value='marble'>Marble</option>";
                 echo "<option value='artificial'>Artificial</option>";
-                // echo "<option value='opening_diameter'>Opening Diameter</option>";
                 echo "</select></td></tr>";
-                
-                
+                               
             } 
             elseif ($type == "Cage") {
                 
-                // echo "<option value='SN'>Serial Number</option>";
-                echo "<option value='type_of'>Type Of</option>";
+                echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='15' required></td></tr>";
                 echo "</select>";
                 echo "</td></tr>";
-                                        
-                
+                                                        
             }
             elseif ($type == "Tank") {
                 
-                // echo "<option value='SN'>Serial Number</option>";
-                echo "<option value='substrate'>substrate</option>";
+                echo "<tr><td>Substrate</td><td>";
+                echo "<select name='substrate'>";
+                echo "<option disabled selected value> -- select an Substrate type -- </option>";
+                echo "<option value='sand'>Sand</option>";
+                echo "<option value='gravel'>Gravel</option>";
+                echo "<option value='dirt'>Dirt</option>";
+                echo "<option value='marble'>Marble</option>";
+                echo "<option value='artificial'>Artificial</option>";
 
                 $stmt = $conn->prepare('select SN, brand, size from Light order by SN;');
                 $stmt->execute();
@@ -143,11 +141,7 @@
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':quantity', $_POST['quantity']);
                 
-                $stmt->execute();
-                
-                // get last inserted sn
-                $_SESSION["addHabitat_prev_id"] = $conn->lastInsertId();
-                
+                $stmt->execute();                
 
                 // insert into appropriate tables
                 if ($_SESSION["addHabitat_type"] == "Bowl") {
@@ -163,21 +157,20 @@
                 } 
                 elseif ($_SESSION["addHabitat_type"] == "Cage") {
                     
-                    $c_stmt = $conn->prepare("insert into Cage (type_of) values (:type_of);");
+                    $c_stmt = $conn->prepare("insert into Cage (SN, type_of) values (:SN, :type_of);");
+                    $b_stmt->bindValue(':SN', trim($_POST['SN']));
                     $c_stmt->bindValue(':type_of', $_POST['type_of']);
-                    $c_stmt2->bindValue(':prev_id', $_SESSION["addHabitat_prev_id"]);
 
                     $c_stmt->execute();
                                         
                 } 
                 elseif ($_SESSION["addHabitat_type"] == "Tank") {
                     
-                    $t_stmt = $conn->prepare("insert into Tank (SN, light, substrate) values (:prev_id, :substrate, :product_to_stock);");
+                    $t_stmt = $conn->prepare("insert into Tank (SN, substrate, light) values (:SN, :substrate, :light);");
                     
-                    $t_stmt->bindValue(':prev_id', $_SESSION["addHabitat_prev_id"]);
-                    $t_stmt->bindValue(':light', $_POST['light']);
+                    $b_stmt->bindValue(':SN', trim($_POST['SN']));
                     $t_stmt->bindValue(':substrate', $_POST['substrate']);
-
+                    $t_stmt->bindValue(':light', $_POST['light']);
                     
                     $t_stmt->execute();
                     
@@ -189,9 +182,7 @@
                 echo "Error: " . $e->getMessage();
             }
             
-            unset ($_SESSION["addHabitat_type"]);
-            unset ($_SESSION["addHabitat_prev_id"]);
-            
+            unset ($_SESSION["addHabitat_type"]);            
         }
         
         ?>

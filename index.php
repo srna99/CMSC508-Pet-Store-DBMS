@@ -86,9 +86,11 @@
         			<br><a href="editFilter.php">Edit A Filter</a>
         			<br><a href="deleteFilter.php">Delete A Filter</a>
 					<br>
+					<br><a href="bowl.php">Display All Bowls</a>
+        			<br><a href="cage.php">Display All Cages</a>
+        			<br><a href="tank.php">Display All Tanks</a>
 					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="addHabitat.php">Add a Habitat</a>
-        			<br><a href="bowl.php">Display All Bowls</a>
     				<!-- <br><a href="addBowl.php">Add New Bowl</a>
     				<br><a href="editBowl.php">Edit A Bowl</a>
         			<br><a href="deleteBowl.php">Delete A Bowl</a> -->
