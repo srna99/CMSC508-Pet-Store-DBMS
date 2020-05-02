@@ -135,6 +135,7 @@
             		<br><a href="deleteStore.php">Close A Store Location</a>
             		<br>
                 	<br><a href="shelter.php">Display All Shelters Collaborated With</a>
+                	<br><a href="representative.php">Display All Shelter Representatives</a>
                 	<br><a href="addShelter.php">Add New Shelter</a>
                 	<br><a href="editShelter.php">Edit A Shelter</a>
                 	<br><a href="deleteShelter.php">Delete A Shelter</a>
