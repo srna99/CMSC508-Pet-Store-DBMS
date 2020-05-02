@@ -133,6 +133,8 @@
             		<br><a href="storeAddress.php">Change Store's Address</a>
             		<br><a href="storeManager.php">Update Store's Manager</a>
             		<br><a href="deleteStore.php">Close A Store Location</a>
+            		<br>
+                	<br><a href="shelter.php">Display All Shelters Collaborated With</a>
             	</div>
             </div>
     	</div>
