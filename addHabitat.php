@@ -75,16 +75,24 @@
             
             if ($type == "Bowl") {
                 
-                echo "<option value='SN'>Serial Number</option>";
-                echo "<option value='substrate'>Substrate</option>";
-                echo "<option value='opening_diameter'>Opening Diameter</option>";
+                // echo "<option value='SN'>Serial Number</option>";
+                // echo "<option value='substrate'>Substrate</option>";
+                echo "<select name='substrate'>";
+            
+                echo "<option value='sand'>Sand</option>";
+                echo "<option value='gravel'>Gravel</option>";
+                echo "<option value='dirt'>Dirt</option>";
+                echo "<option value='marble'>Marble</option>";
+                echo "<option value='artificial'>Artificial</option>";
+                echo "<tr><td>Opening Diameter</td><td><input name='opening_diameter' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
+                // echo "<option value='opening_diameter'>Opening Diameter</option>";
                 echo "</select></td></tr>";
                 
                 
             } 
             elseif ($type == "Cage") {
                 
-                echo "<option value='SN'>Serial Number</option>";
+                // echo "<option value='SN'>Serial Number</option>";
                 echo "<option value='type_of'>Type Of</option>";
                 echo "</select>";
                 echo "</td></tr>";
@@ -93,7 +101,7 @@
             }
             elseif ($type == "Tank") {
                 
-                echo "<option value='SN'>Serial Number</option>";
+                // echo "<option value='SN'>Serial Number</option>";
                 echo "<option value='substrate'>substrate</option>";
 
                 $stmt = $conn->prepare('select SN, brand, size from Light order by SN;');
