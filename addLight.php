@@ -40,9 +40,9 @@
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
+            echo "<tr><td>Wattage</td><td><input name='wattage' type='number' min='0 step='1' size='11'></td></tr>";
             echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
             echo "<tr><td>Size</td><td><input name='size' type='number' min='1' step='1' size='11'></td></tr>";
-            echo "<tr><td>Wattage</td><td><input name='wattage' type='number' min='0 step='1' size='11'></td></tr>";
             
             echo "</select>";
             echo "</td></tr>";
@@ -59,12 +59,13 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Light values (:SN,:brand,:size,:wattage);");
+                $stmt = $conn->prepare("insert into Light values (:SN,:wattage,:brand,:size);");
                 
                 $stmt->bindValue(':SN', $_POST['SN']);
+                $stmt->bindValue(':wattage', $_POST['wattage']);
                 $stmt->bindValue(':brand', $_POST['brand']);
                 $stmt->bindValue(':size', $_POST['size']);
-                $stmt->bindValue(':wattage', $_POST['wattage']);
+                
                 
                 $stmt->execute();
                 

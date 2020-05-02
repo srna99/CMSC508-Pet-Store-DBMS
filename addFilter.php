@@ -36,7 +36,7 @@
         // send post
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 
-            echo "<form method='post' action='addLight.php'>";
+            echo "<form method='post' action='addFilter.php'>";
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";

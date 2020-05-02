@@ -182,7 +182,6 @@
             
             unset ($_SESSION["addHabitat_type"]);
             unset ($_SESSION["addHabitat_prev_id"]);
-            unset ($_SESSION["addHabitat_cert_id"]);
             
         }
         
