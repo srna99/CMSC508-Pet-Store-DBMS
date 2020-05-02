@@ -74,7 +74,9 @@
             echo "</td></tr>";
             
             if ($type == "Bowl") {
-                
+
+                echo "<tr><td>Opening Diameter</td><td><input name='opening_diameter' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
+
                 // echo "<option value='SN'>Serial Number</option>";
                 // echo "<option value='substrate'>Substrate</option>";
                 echo "<select name='substrate'>";
@@ -84,7 +86,6 @@
                 echo "<option value='dirt'>Dirt</option>";
                 echo "<option value='marble'>Marble</option>";
                 echo "<option value='artificial'>Artificial</option>";
-                echo "<tr><td>Opening Diameter</td><td><input name='opening_diameter' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
                 // echo "<option value='opening_diameter'>Opening Diameter</option>";
                 echo "</select></td></tr>";
                 
@@ -151,9 +152,9 @@
                 // insert into appropriate tables
                 if ($_SESSION["addHabitat_type"] == "Bowl") {
                     
-                    $b_stmt = $conn->prepare("insert into Bowl (SN,substrate,opening_diameter) values (:prev_id, :substrate, :opening_diameter);");
+                    $b_stmt = $conn->prepare("insert into Bowl (SN,substrate,opening_diameter) values (:SN, :substrate, :opening_diameter);");
                     
-                    $b_stmt->bindValue(':prev_id', $_SESSION["addHabitat_prev_id"]);
+                    $b_stmt->bindValue(':SN', $_SESSION["SN"]);
                     $b_stmt->bindValue(':substrate', $_POST['substrate']);
                     $b_stmt->bindValue(':opening_diameter', $_POST['opening_diameter']);
 
