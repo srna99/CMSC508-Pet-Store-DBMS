@@ -43,7 +43,7 @@
             $stmt = $conn->prepare('select classification,diet_type from Animal order by classification;');
             $stmt->execute();
             
-            // get all tanks
+            // get all animals
             echo "<tr><td>Animal</td><td>";
             echo "<select name='animal'>";
             
@@ -59,8 +59,8 @@
             $stmt = $conn->prepare('select SN,volume,capacity,price from Habitat order by SN;');
             $stmt->execute();
             
-            // get all filters
-            echo "<select name='filter'>";
+            // get all habitats
+            echo "<select name='habitat'>";
             
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[SN]'>$row[SN]: Volume: $row[volume] Capacity: $row[capacity] Price: $row[price]</option>";
