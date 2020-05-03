@@ -68,6 +68,7 @@
 
             $type = $_GET["type"];
 
+            $SN = $_GET["SN"];
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
@@ -88,8 +89,10 @@
                     echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
                 }
             }
-            
+
             $_SESSION["editHabitat_habitat_type"] = $type;
+            $_SESSION["editHabitat_SN"] = $SN; 
+
             echo "</select>";
             echo "</form>";
             
@@ -100,7 +103,7 @@
         // second page - form
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $SN = $_GET["SN"];
+            //$SN = $_GET["SN"];
             
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
@@ -135,7 +138,7 @@
             
             $row = $stmt->fetch();
             
-            $_SESSION["editHabitat_habitat_type"] = $type;
+            //$_SESSION["editHabitat_habitat_type"] = $type;
             
             switch ($_SESSION["editHabitat_habitat_type"]) {
                 
