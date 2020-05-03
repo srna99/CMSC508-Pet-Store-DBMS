@@ -162,7 +162,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 					<br><a href="editHabitat.php">Edit A Habitat</a>
 					<br><a href="deleteHabitat.php">Delete A Habitat</a>
 					<br><a href="addLivesIn.php">Add a Animal to a Habitat</a>
-					<!-- <br><a href="deleteLivesIn.php">Delete an Animal from a Habitat</a> -->
+					<br><a href="deleteLivesIn.php">Delete an Animal from a Habitat</a>
         		</div>
         	</div>
         		
