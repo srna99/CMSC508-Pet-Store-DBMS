@@ -69,7 +69,7 @@
             $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A") as light,IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A") as opening_diameter,type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
             $stmt->execute();
 
-            $type = $_GET["type"];
+            // $type = $_GET["type"];
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
@@ -95,7 +95,6 @@
 
             echo "</select>";
             echo "</form>";
-            
             exit();
             
         }
