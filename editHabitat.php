@@ -58,11 +58,47 @@
             exit();
             
         }
-        if($_SERVER['REQUEST_METHOD'] != 'POST') {
-            // show info from query
-            // while ($row = $stmt->fetch()) {
-            //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
-            // }
+        // if($_SERVER['REQUEST_METHOD'] != 'POST') {
+        //     // show info from query
+        //     // while ($row = $stmt->fetch()) {
+        //     //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
+        //     // }
+        //     $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
+        //     $stmt->execute();
+
+        //     $type = $_GET["type"];
+
+        //     echo "<select name='SN' onchange='this.form.submit();'>";
+        //     echo "<option disabled selected value> -- select an Habitat -- </option>";
+     
+        //     if($type == "Bowl"){
+        //         while ($row = $stmt->fetch()) {
+        //             echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+        //         }
+        //     }
+
+        //     if($type == "Cage"){
+        //         while ($row = $stmt->fetch()) {
+        //             echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+        //         }
+        //     }
+
+        //     if($type == "Tank"){
+        //         while ($row = $stmt->fetch()) {
+        //             echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+        //         }
+        //     }
+            
+        //     echo "</select>";
+        //     echo "</form>";
+        //     exit();
+            
+        // }
+        
+        // second page - form
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            
+            $SN = $_GET["SN"];
             $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
             $stmt->execute();
 
@@ -89,19 +125,8 @@
                 }
             }
             
-            echo "<tr><td></td><td><input type='submit' value='Submit'></td></tr>";
-
             echo "</select>";
             echo "</form>";
-            exit();
-            
-        }
-        
-        // second page - form
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            
-            $SN = $_GET["SN"];
-            
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
