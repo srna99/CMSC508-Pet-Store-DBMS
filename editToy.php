@@ -74,10 +74,10 @@
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>Serial Number</td><td>$row[SN]</td></tr>";
+            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
             echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='7'></td></tr>";
             echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='11'></td></tr>";
-            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
             $stmt = $conn->prepare("SELECT classification FROM Animal");
@@ -106,14 +106,14 @@
             try {
                 
                 // update Toy with edits
-                $stmt = $conn->prepare("update Toy set brand = :brand, price = :price, quantity = :quantity,type_of = :type_of, animal = :animal where SN = :SN;");
+                $stmt = $conn->prepare("update Toy type_of = :type_of, set brand = :brand, price = :price, quantity = :quantity, animal = :animal where SN = :SN;");
                 
+                $stmt->bindValue(':SN', $_SESSION["editToy_SN"]);
+                $stmt->bindValue(':type_of', $_POST['type_of']);
                 $stmt->bindValue(':brand', $_POST['brand']);
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':quantity', $_POST['quantity']);
-                $stmt->bindValue(':type_of', $_POST['type_of']);
                 $stmt->bindValue(':animal', $_POST['animal']);
-                $stmt->bindValue(':SN', $_SESSION["editToy_SN"]);
                 
                 $stmt->execute();
                 

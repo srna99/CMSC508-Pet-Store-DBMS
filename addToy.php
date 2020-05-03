@@ -40,10 +40,10 @@
             echo "<table>";
             echo "<tbody>";
             echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
+            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
             echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='7'></td></tr>";
             echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='11'></td></tr>";
-            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
             echo "<tr><td>Animal</td><td>";
            
             $stmt = $conn->prepare("SELECT classification FROM Animal");
@@ -70,13 +70,13 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Toy values (:SN,:brand,:price,:quantity,:type_of,:animal);");
+                $stmt = $conn->prepare("insert into Toy values (:SN,:type_of,:brand,:price,:quantity,:animal);");
                 
                 $stmt->bindValue(':SN', $_POST['SN']);
+                $stmt->bindValue(':type_of', $_POST['type_of']);
                 $stmt->bindValue(':brand', $_POST['brand']);
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':quantity', $_POST['quantity']);
-                $stmt->bindValue(':type_of', $_POST['type_of']);
                 $stmt->bindValue(':animal', $_POST['animal']);
                 
                 $stmt->execute();
