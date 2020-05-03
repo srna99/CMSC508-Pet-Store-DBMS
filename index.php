@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+?>
+
 <html>
     <head>
     	<title>CMSC 508 Pet Store DBMS</title>
@@ -6,7 +18,7 @@
     	    #content {
                 max-width: 800px;
                 margin: auto;
-                padding-bottom: 100px;
+                padding-bottom: 50px;
                 display: flex;
             }
             
@@ -37,6 +49,12 @@
             a {
                 display: inline-block;
                 margin-bottom: 5px;
+            }
+            
+            #sign-out {
+                display: block;
+                text-align: center;
+                padding-bottom: 50px;
             }
     	</style>
     </head>
@@ -195,5 +213,7 @@
             	</div>
             </div>
     	</div>
+    	
+    	<a href="logout.php" id="sign-out">Sign Out of Your Account</a>
     </body>
 </html>
