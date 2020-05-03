@@ -39,13 +39,12 @@
             echo "<form method='post' action='addTankFilter.php'>";
             echo "<table>";
             echo "<tbody>";
-
-            echo "<tr>Tank<td></td><td>";
             
             $stmt = $conn->prepare('select SN, light, substrate from Tank order by SN;');
             $stmt->execute();
             
             // get all tanks
+            echo "<tr>Tank<td></td><td>";
             echo "<select name='tank'>";
             
             while ($row = $stmt->fetch()) {
