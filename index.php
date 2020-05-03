@@ -91,6 +91,11 @@
         			<br><a href="editToy.php">Edit A Toy</a>
 					<br><a href="deleteToy.php">Delete A Toy</a>
 					<br>
+        			<br><a href="decor.php">Display All Decor</a>
+        			<br><a href="addDecor.php">Add New Decor</a>
+        			<br><a href="editDecor.php">Edit A Decor</a>
+					<br><a href="deleteDecor.php">Delete A Decor</a>
+					<br>
         			<br><a href="leash.php">Display All Leash</a>
         			<br><a href="addLeash.php">Add New Leash</a>
         			<br><a href="editLeash.php">Edit A Leash</a>
@@ -114,7 +119,9 @@
 					<br><a href="filter.php">Display All Filters</a>
         			<br><a href="addFilter.php">Add New Filter</a>
         			<br><a href="editFilter.php">Edit A Filter</a>
-        			<br><a href="deleteFilter.php">Delete A Filter</a>
+					<br><a href="deleteFilter.php">Delete A Filter</a>
+					<br><a href="tankFilter.php">Display All Filters for Tanks</a>
+        			<br><a href="addTankFilter.php">Add A Filter for Tank</a>
 					<br>
 					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="bowl.php">Display All Bowls</a>
