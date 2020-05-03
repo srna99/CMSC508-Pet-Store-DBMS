@@ -51,23 +51,27 @@
             echo "<option disabled selected value> -- select an Habitat -- </option>";
 
             // show info from query
-            if($row[type_of]!=null){
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-                }
+            while ($row = $stmt->fetch()) {
+                echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
             }
 
-            if($row[light]!=null){
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-                }
-            }
+            // if($row[type_of]!=null){
+            //     while ($row = $stmt->fetch()) {
+            //         echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+            //     }
+            // }
 
-            if($row[opening_diameter]!=null){
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-                }
-            }
+            // if($row[light]!=null){
+            //     while ($row = $stmt->fetch()) {
+            //         echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+            //     }
+            // }
+
+            // if($row[opening_diameter]!=null){
+            //     while ($row = $stmt->fetch()) {
+            //         echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+            //     }
+            // }
             
             // while ($row = $stmt->fetch()) {
             //     echo "<option value='$row[SN]'>Volume: $row[volume] Capacity: $row[capacity] Price: $row[price]</option>";
@@ -83,7 +87,7 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             $SN = $_GET["SN"];
-            
+            $type = $_GET["habitat_type"];
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
@@ -117,7 +121,7 @@
             
             $row = $stmt->fetch();
             
-            $_SESSION["editHabitat_habitat_type"] = $row[habitat_type];
+            $_SESSION["editHabitat_habitat_type"] = $type;
             
             switch ($_SESSION["editHabitat_habitat_type"]) {
                 
