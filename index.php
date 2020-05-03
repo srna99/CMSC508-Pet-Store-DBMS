@@ -125,6 +125,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         			<br><a href="editLeash.php">Edit A Leash</a>
 					<br><a href="deleteLeash.php">Delete A Leash</a>
 					<br>
+        			<br><a href="litter.php">Display All Litter</a>
+        			<br><a href="addLitter.php">Add New Litter</a>
+        			<br><a href="editLitter.php">Edit A Litter</a>
+					<br><a href="deleteLitter.php">Delete A Litter</a>
+					<br>
         			<br><a href="crate.php">Display All Crate</a>
         			<br><a href="addCrate.php">Add New Crate</a>
         			<br><a href="editCrate.php">Edit A Crate</a>
