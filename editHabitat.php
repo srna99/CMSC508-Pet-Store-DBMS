@@ -53,6 +53,7 @@
             echo "<option value='Cage'>Cage</option>";
             echo "<option value='Tank'>Tank</option>";
             
+            echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
 
             // show info from query
