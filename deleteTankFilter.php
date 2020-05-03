@@ -35,40 +35,23 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
+            $stmt = $conn->prepare('select tank,filter from Lives_In order by filter,tank;');
+            $stmt->execute();
+            
             echo "<form method='post' action='deleteTankFilter.php'>";
             echo "<table>";
             echo "<tbody>";
-            
-            $stmt = $conn->prepare('select SN, light, substrate from Tank order by SN;');
-            $stmt->execute();
-            
-            // get all tanks
-            echo "<tr><td>Tank</td><td>";
+            echo "<tr><td>Tank Filter</td><td>";
+           
+            // make dropdown menu
             echo "<select name='tank'>";
-            
+            echo "<option disabled selected value> -- select an Crate -- </option>";
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: Substrate: $row[substrate] Light: $row[light]</option>";
+                echo "<option value='$row[tank]'>Tank: $row[tank] Filter: $row[filter] </option>";
             }
             
             echo "</select>";
             echo "</td></tr>";
-
-            echo "<tr><td>Filter</td><td>";
-            
-            $stmt = $conn->prepare('select SN,type_of,brand,size from Filter order by SN;');
-            $stmt->execute();
-            
-            // get all filters
-            echo "<select name='filter'>";
-            
-            while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: $row[type_of] filter from $row[brand] size: $row[size]</option>";
-            }
-            
-            echo "</select>";
-            echo "</td></tr>";
-            
-            
             
             // submit form button
             echo "<tr><td></td><td><input type='submit' value='Submit'></td></tr>";
