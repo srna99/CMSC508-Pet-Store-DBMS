@@ -53,14 +53,22 @@
             echo "<option value='Cage'>Cage</option>";
             echo "<option value='Tank'>Tank</option>";
             
-            echo "<select name='SN' onchange='this.form.submit();'>";
-            echo "<option disabled selected value> -- select an Habitat -- </option>";
-
+            echo "</select>";
+            echo "</form>";
+            exit();
+            
+        }
+        if($_SERVER['REQUEST_METHOD'] != 'POST') {
             // show info from query
             // while ($row = $stmt->fetch()) {
             //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
             // }
+            
+            $type = $_GET["type"];
 
+            echo "<select name='SN' onchange='this.form.submit();'>";
+            echo "<option disabled selected value> -- select an Habitat -- </option>";
+     
             if($type == "Bowl"){
                 while ($row = $stmt->fetch()) {
                     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
@@ -90,7 +98,7 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             $SN = $_GET["SN"];
-            $type = $_GET["type"];
+            
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
