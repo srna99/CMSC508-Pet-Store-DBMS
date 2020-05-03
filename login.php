@@ -19,11 +19,11 @@ $email_err = $password_err = "";
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $email_err = "Please enter username.";
+    // Check if email is empty
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter email.";
     } else{
-        $email = trim($_POST["username"]);
+        $email = trim($_POST["email"]);
     }
     
     // Check if password is empty
