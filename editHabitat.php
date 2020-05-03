@@ -39,8 +39,8 @@
         // first page
         if (!isset($_GET['type']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
-            $stmt->execute();
+            // $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
+            // $stmt->execute();
             
             // select a Habitat to get to current related info
             echo "<form method='get'>";
@@ -63,7 +63,9 @@
             // while ($row = $stmt->fetch()) {
             //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
             // }
-            
+            $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
+            $stmt->execute();
+
             $type = $_GET["type"];
 
             echo "<select name='SN' onchange='this.form.submit();'>";
