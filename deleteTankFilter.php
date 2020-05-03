@@ -35,7 +35,7 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            $stmt = $conn->prepare('select tank,filter from Tank_Filter order by filter,tank;');
+            $stmt = $conn->prepare('select tank,filter from Tank_Filter order by tank,filter;');
             $stmt->execute();
             
             echo "<form method='post' action='deleteTankFilter.php'>";
@@ -45,7 +45,7 @@
             echo "<tr><td>Tank Filter</td><td>";
             // make dropdown menu
             echo "<select name='tankfilter'>";
-            echo "<option disabled selected value> -- select an Crate -- </option>";
+            echo "<option disabled selected value> -- select tank and filter -- </option>";
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[tank] $row[filter]'>Tank: $row[tank] Filter: $row[filter] </option>";
             }
@@ -67,7 +67,7 @@
                 // delete from table
                 $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank,filter = :filter;");
                 
-                $tank_filter = explode("", $_POST['tankfilter']);
+                $tank_filter = explode(" ", $_POST['tankfilter']);
 
                 $stmt->bindValue(':tank', $tank_filter[0]);
                 $stmt->bindValue(':filter', $tank_filter[1]);
