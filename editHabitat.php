@@ -62,10 +62,7 @@
             
         // }
         if(!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
-            // show info from query
-            // while ($row = $stmt->fetch()) {
-            //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
-            // }
+            
             $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,light,IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,opening_diameter,type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
             $stmt->execute();
 
@@ -73,23 +70,28 @@
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
-            if($_POST['opening_diameter'] != null){
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-                }
+            // show info from query
+            while ($row = $stmt->fetch()) {
+                echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
             }
 
-            if($_POST['type_of'] != null){
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-                }
-            }
+            // if($_POST['opening_diameter'] != null){
+            //     while ($row = $stmt->fetch()) {
+            //         echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+            //     }
+            // }
 
-            if($_POST['light'] != null){
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-                }
-            }
+            // if($_POST['type_of'] != null){
+            //     while ($row = $stmt->fetch()) {
+            //         echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+            //     }
+            // }
+
+            // if($_POST['light'] != null){
+            //     while ($row = $stmt->fetch()) {
+            //         echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+            //     }
+            // }
 
             $_SESSION["editHabitat_SN"] = $SN; 
 
