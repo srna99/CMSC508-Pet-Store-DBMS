@@ -41,10 +41,10 @@
             echo "<form method='post' action='deleteTankFilter.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<select name='tank'>";
-            echo "<option value='$row[tank]'</option>";
-            echo "<select name='filter'>";
-            echo "<option value='$row[filter]'</option>";
+            // echo "<select name='tank'>";
+            // echo "<option value='$row[tank]'</option>";
+            // echo "<select name='filter'>";
+            // echo "<option value='$row[filter]'</option>";
 
             echo "<tr><td>Tank Filter</td><td>";
             // make dropdown menu
@@ -72,7 +72,7 @@
                 $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank,filter = :filter;");
                 
                 $stmt->bindValue(':tank', $_POST['tank']);
-                $stmt->bindValue(':filter', $_POST['filter']);
+                //$stmt->bindValue(':filter', $_POST['filter']);
                 
                 $stmt->execute();
                 
