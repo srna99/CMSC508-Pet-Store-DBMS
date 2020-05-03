@@ -52,15 +52,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 margin-bottom: 5px;
             }
             
-            #sign-out {
+            #logout {
                 display: block;
-                text-align: center;
-                padding-bottom: 50px;
+                text-align: right;
+                max-width: 650px;
+                margin: auto;
+                padding-top: 10px;
+                padding-right: 10px;
             }
     	</style>
     </head>
     
     <body>
+    	<a href="logout.php" id="logout">Log Out</a>
+    	
     	<h1>Pet Store DBMS</h1>
     	
     	<div id="content">
@@ -227,7 +232,5 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             	</div>
             </div>
     	</div>
-    	
-    	<a href="logout.php" id="sign-out">Sign Out of Your Account</a>
     </body>
 </html>
