@@ -35,7 +35,7 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            $stmt = $conn->prepare('select tank,filter from Tank_Filter order by tank,filter;');
+            $stmt = $conn->prepare('select tank,filter from Tank_Filter order by tank;');
             $stmt->execute();
             
             echo "<form method='post' action='deleteTankFilter.php'>";
@@ -65,7 +65,7 @@
             try {
                 
                 // delete from table
-                $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank,filter = :filter;");
+                $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank, filter = :filter;");
                 
                 $tank_filter = explode(" ", $_POST['tankfilter']);
 
