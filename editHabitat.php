@@ -118,7 +118,7 @@
             
             $row = $stmt->fetch();
             
-            //$_SESSION["editHabitat_habitat_type"] = $type;
+            $_SESSION["editHabitat_habitat_type"] = $row[habitat_type];
             
             switch ($_SESSION["editHabitat_habitat_type"]) {
                 
