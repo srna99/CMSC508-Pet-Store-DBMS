@@ -97,7 +97,7 @@
             echo "<form method='post' action='editHabitat.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Serial Number</td><td><input name='SN' type='number' min='1' step='1' size='7' required></td></tr>";
+            echo "<tr><td>Serial Number</td><td>$row[SN]</td></tr>";
             echo "<tr><td>Volume</td><td><input name='volume' type='number' min='1' step='1' size='11' required></td></tr>";
             echo "<tr><td>Capacity</td><td><input name='capacity' type='number' min='1' max='5000' step='1' size='11' required></td></tr>";
             echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' max='999999.99' step='0.01' size='8' value='0.00' required></td></tr>";
