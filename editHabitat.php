@@ -66,14 +66,14 @@
             // while ($row = $stmt->fetch()) {
             //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
             // }
-            $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A") as light,IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A") as opening_diameter,type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
+            $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,light,IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,opening_diameter,type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
             $stmt->execute();
 
             // $type = $_GET["type"];
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
-            if($_POST['opening_diameter'] != "N/A"){
+            if($_POST['opening_diameter'] != null){
                 while ($row = $stmt->fetch()) {
                     echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
                 }
@@ -85,7 +85,7 @@
                 }
             }
 
-            if($_POST['light'] != "N/A"){
+            if($_POST['light'] != null){
                 while ($row = $stmt->fetch()) {
                     echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
                 }
