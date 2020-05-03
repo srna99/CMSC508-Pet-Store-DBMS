@@ -47,7 +47,7 @@
             echo "<select name='tankfilter'>";
             echo "<option disabled selected value> -- select an Crate -- </option>";
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[tank]'>Tank: $row[tank] Filter: $row[filter] </option>";
+                echo "<option value='$row[tank] $row[filter]'>Tank: $row[tank] Filter: $row[filter] </option>";
             }
             
             echo "</select>";
