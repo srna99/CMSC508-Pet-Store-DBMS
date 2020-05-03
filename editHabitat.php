@@ -127,6 +127,7 @@
             
             echo "</select>";
             echo "</form>";
+            exit();
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
