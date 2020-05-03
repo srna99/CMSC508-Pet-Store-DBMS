@@ -43,7 +43,6 @@
             // make dropdown menu for Habitat types
             echo "<select name='type' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat type -- </option>";
-            echo "<option value='General'>General</option>";
             echo "<option value='Bowl'>Bowl</option>";
             echo "<option value='Cage'>Cage</option>";
             echo "<option value='Tank'>Tank</option>";
@@ -106,7 +105,7 @@
                 $stmt = $conn->prepare('select SN, brand, size from Light order by SN;');
                 $stmt->execute();
                 
-                // make dropdown menu for manager
+                // make dropdown menu for light
                 echo "<tr><td>Light</td><td>";
                 echo "<select name='light'>";
                 

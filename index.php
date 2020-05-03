@@ -100,10 +100,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         			<br><a href="editMedication.php">Edit A Medication</a>
 					<br><a href="deleteMedication.php">Delete A Medication</a>
 					<br>
-        			<br><a href="litter.php">Display All Litter</a>
-        			<br><a href="addLitter.php">Add New Litter</a>
-        			<br><a href="editLitter.php">Edit A Litter</a>
-					<br><a href="deleteLitter.php">Delete A Litter</a>
+        			<br><a href="vitamin.php">Display All Vitamin</a>
+        			<br><a href="addVitamin.php">Add New Vitamin</a>
+        			<br><a href="editVitamin.php">Edit A Vitamin</a>
+					<br><a href="deleteVitamin.php">Delete A Vitamin</a>
+					<br>
+        			<br><a href="toy.php">Display All Toy</a>
+        			<br><a href="addToy.php">Add New Toy</a>
+        			<br><a href="editToy.php">Edit A Toy</a>
+					<br><a href="deleteToy.php">Delete A Toy</a>
+					<br>
+        			<br><a href="decor.php">Display All Decor</a>
+        			<br><a href="addDecor.php">Add New Decor</a>
+        			<br><a href="editDecor.php">Edit A Decor</a>
+					<br><a href="deleteDecor.php">Delete A Decor</a>
 					<br>
         			<br><a href="leash.php">Display All Leash</a>
         			<br><a href="addLeash.php">Add New Leash</a>
@@ -128,13 +138,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 					<br><a href="filter.php">Display All Filters</a>
         			<br><a href="addFilter.php">Add New Filter</a>
         			<br><a href="editFilter.php">Edit A Filter</a>
-        			<br><a href="deleteFilter.php">Delete A Filter</a>
+					<br><a href="deleteFilter.php">Delete A Filter</a>
+					<br><a href="tankFilter.php">Display All Filters for Tanks</a>
+        			<br><a href="addTankFilter.php">Add A Filter for Tank</a>
 					<br>
 					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="bowl.php">Display All Bowls</a>
         			<br><a href="cage.php">Display All Cages</a>
         			<br><a href="tank.php">Display All Tanks</a>
 					<br><a href="addHabitat.php">Add a Habitat</a>
+					<br><a href="editHabitat.php">Edit A Habitat</a>
 					<br><a href="deleteHabitat.php">Delete A Habitat</a>
         		</div>
         	</div>

@@ -26,34 +26,45 @@
 	
 	<body>
 		
-		<h1>Add New Toy</h1>
+		<h1>Add New Filter for Tank</h1>
 	
         <?php
         
         require_once ('connection.php');
-
-
-        // send post
+        
+        // first page
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-
-            echo "<form method='post' action='addToy.php'>";
+            
+            // make fill-in form
+            echo "<form method='post' action='addTankFilter.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>SN</td><td><input name='SN' type='number' min='1' step='1' size='7'></td></tr>";
-            echo "<tr><td>Type Of</td><td><input name='type_of' type='text' size='20'></td></tr>";
-            echo "<tr><td>Brand</td><td><input name='brand' type='text' size='20'></td></tr>";
-            echo "<tr><td>Price</td><td><input name='price' type='number' min='0.01' step='0.01' size='7'></td></tr>";
-            echo "<tr><td>Quantity</td><td><input name='quantity' type='number' min='0 step='1' size='11'></td></tr>";
-            echo "<tr><td>Animal</td><td>";
-           
-            $stmt = $conn->prepare("SELECT classification FROM Animal");
+            echo "<tr><td>Filter</td><td>";
+            
+            $stmt = $conn->prepare('select SN from Filter order by SN;');
             $stmt->execute();
-
-            echo "<select name='animal'>"; // get animal for drop down
-            echo "<option disabled selected value> -- select an animal -- </option>";
+            
+            // get all filters
+            echo "<select name='filter'>";
+            
             while ($row = $stmt->fetch()) {
-                echo "<option value='" . $row['classification'] . "'>" . $row['classification'] . "</option>";
-            }   
+                echo "<option value='$row[SN]'>$row[SN]: $row[type_of] filter from $row[brand] size: $row[size]</option>";
+            }
+            
+            echo "</select>";
+            echo "</td></tr>";
+            
+            echo "<tr>Tank<td></td><td>";
+            
+            $stmt = $conn->prepare('select SN, light, substrate from Tank order by SN;');
+            $stmt->execute();
+            
+            // get all tanks
+            echo "<select name='tank'>";
+            
+            while ($row = $stmt->fetch()) {
+                echo "<option value='$row[SN]'>$row[SN]: Substrate: $row[substrate] Light: $row[light]</option>";
+            }
             
             echo "</select>";
             echo "</td></tr>";
@@ -70,18 +81,14 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Toy values (:SN,:type_of,:brand,:price,:quantity,:animal);");
+                $stmt = $conn->prepare("insert into Tank_Filter values (:filter, :tank);");
                 
-                $stmt->bindValue(':SN', $_POST['SN']);
-                $stmt->bindValue(':type_of', $_POST['type_of']);
-                $stmt->bindValue(':brand', $_POST['brand']);
-                $stmt->bindValue(':price', $_POST['price']);
-                $stmt->bindValue(':quantity', $_POST['quantity']);
-                $stmt->bindValue(':animal', $_POST['animal']);
+                $stmt->bindValue(':filter', $_POST['filter']);
+                $stmt->bindValue(':tank', $_POST['tank']);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Toy.";
+                echo "Successfully added new Tank Filter usage record.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
