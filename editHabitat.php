@@ -44,25 +44,7 @@
             
             // select a Habitat to get to current related info
             echo "<form method='get'>";
-            echo "Select an Habitat:  ";
-            
-            // make dropdown menu for Habitat
-            echo "<select name='type' onchange='this.form.submit();'>";
-            echo "<option disabled selected value> -- select an Habitat type -- </option>";
-            echo "<option value='Bowl'>Bowl</option>";
-            echo "<option value='Cage'>Cage</option>";
-            echo "<option value='Tank'>Tank</option>";
-            
-            echo "</select>";
-            echo "</form>";
-            exit();
-            
-        }
-        if(!isset($_GET['type']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
-            // show info from query
-            // while ($row = $stmt->fetch()) {
-            //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
-            // }
+
             $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
             $stmt->execute();
 
@@ -90,15 +72,66 @@
                 }
             }
 
-            $_SESSION["editHabitat_habitat_type"] = $type;
+            
             $_SESSION["editHabitat_SN"] = $SN; 
 
+            echo "Select an Habitat:  ";
+            
+            // make dropdown menu for Habitat
+            echo "<select name='type' onchange='this.form.submit();'>";
+            echo "<option disabled selected value> -- select an Habitat type -- </option>";
+            echo "<option value='Bowl'>Bowl</option>";
+            echo "<option value='Cage'>Cage</option>";
+            echo "<option value='Tank'>Tank</option>";
+            
             echo "</select>";
             echo "</form>";
-            
+            $_SESSION["editHabitat_habitat_type"] = $type;
+
             exit();
             
         }
+        // if(!isset($_GET['type']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
+        //     // show info from query
+        //     // while ($row = $stmt->fetch()) {
+        //     //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
+        //     // }
+        //     // $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
+        //     // $stmt->execute();
+
+        //     // $type = $_GET["type"];
+
+        //     // $SN = $_GET["SN"];
+        //     // echo "<select name='SN' onchange='this.form.submit();'>";
+        //     // echo "<option disabled selected value> -- select an Habitat -- </option>";
+     
+        //     // if($type == "Bowl"){
+        //     //     while ($row = $stmt->fetch()) {
+        //     //         echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+        //     //     }
+        //     // }
+
+        //     // if($type == "Cage"){
+        //     //     while ($row = $stmt->fetch()) {
+        //     //         echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+        //     //     }
+        //     // }
+
+        //     // if($type == "Tank"){
+        //     //     while ($row = $stmt->fetch()) {
+        //     //         echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+        //     //     }
+        //     // }
+
+        //     // $_SESSION["editHabitat_habitat_type"] = $type;
+        //     // $_SESSION["editHabitat_SN"] = $SN; 
+
+        //     echo "</select>";
+        //     echo "</form>";
+            
+        //     exit();
+            
+        // }
         
         // second page - form
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {

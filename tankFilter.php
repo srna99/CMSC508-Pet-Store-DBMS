@@ -32,22 +32,22 @@
         require_once ('connection.php');
         
         // get all usage history
-        $stmt = $conn->prepare('select filter,tank from Tank_Filter order by filter;');
+        $stmt = $conn->prepare('select tank,filter from Tank_Filter order by filter;');
         $stmt->execute();
         
         // make table
         echo "<table>";
         // row headings
         echo "<thead><tr>
-            <th>Filter</th>
             <th>Tank</th>
+            <th>Filter</th>
             </tr></thead>";
         echo "<tbody>";
         
         // info from query
         while ($row = $stmt->fetch()) {
-            echo "<tr><td>$row[filter]</td>
-            <td>$row[tank]</td></tr>";
+            echo "<tr><td>$row[tank]</td>
+            <td>$row[filter]</td></tr>";
         }
         
         echo "</tbody>";

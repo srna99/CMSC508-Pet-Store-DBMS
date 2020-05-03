@@ -39,6 +39,22 @@
             echo "<form method='post' action='addTankFilter.php'>";
             echo "<table>";
             echo "<tbody>";
+
+            echo "<tr>Tank<td></td><td>";
+            
+            $stmt = $conn->prepare('select SN, light, substrate from Tank order by SN;');
+            $stmt->execute();
+            
+            // get all tanks
+            echo "<select name='tank'>";
+            
+            while ($row = $stmt->fetch()) {
+                echo "<option value='$row[SN]'>$row[SN]: Substrate: $row[substrate] Light: $row[light]</option>";
+            }
+            
+            echo "</select>";
+            echo "</td></tr>";
+
             echo "<tr><td>Filter</td><td>";
             
             $stmt = $conn->prepare('select SN from Filter order by SN;');
@@ -54,20 +70,7 @@
             echo "</select>";
             echo "</td></tr>";
             
-            echo "<tr>Tank<td></td><td>";
             
-            $stmt = $conn->prepare('select SN, light, substrate from Tank order by SN;');
-            $stmt->execute();
-            
-            // get all tanks
-            echo "<select name='tank'>";
-            
-            while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: Substrate: $row[substrate] Light: $row[light]</option>";
-            }
-            
-            echo "</select>";
-            echo "</td></tr>";
             
             // submit form button
             echo "<tr><td></td><td><input type='submit' value='Submit'></td></tr>";
@@ -81,10 +84,10 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Tank_Filter values (:filter, :tank);");
+                $stmt = $conn->prepare("insert into Tank_Filter values (:tank,:filter);");
                 
-                $stmt->bindValue(':filter', $_POST['filter']);
                 $stmt->bindValue(':tank', $_POST['tank']);
+                $stmt->bindValue(':filter', $_POST['filter']);
                 
                 $stmt->execute();
                 
