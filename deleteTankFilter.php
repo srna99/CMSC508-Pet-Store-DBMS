@@ -26,17 +26,16 @@
 	
 	<body>
 		
-		<h1>Add New Filter for Tank</h1>
+		<h1>Delete Bedding</h1>
 	
         <?php
         
         require_once ('connection.php');
-        
-        // first page
+
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            echo "<form method='post' action='addTankFilter.php'>";
+            echo "<form method='post' action='deleteTankFilter.php'>";
             echo "<table>";
             echo "<tbody>";
             
@@ -82,15 +81,15 @@
             
             try {
                 
-                // insert into table
-                $stmt = $conn->prepare("insert into Tank_Filter values (:tank,:filter);");
+                // delete from table
+                $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank,filter = :filter;");
                 
                 $stmt->bindValue(':tank', $_POST['tank']);
                 $stmt->bindValue(':filter', $_POST['filter']);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Tank Filter usage record.";
+                echo "Successfully deleted Bedding.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();

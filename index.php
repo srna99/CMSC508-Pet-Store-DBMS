@@ -150,15 +150,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         			<br><a href="editFilter.php">Edit A Filter</a>
 					<br><a href="deleteFilter.php">Delete A Filter</a>
 					<br><a href="tankFilter.php">Display All Filters for Tanks</a>
-        			<br><a href="addTankFilter.php">Add A Filter for Tank</a>
+					<br><a href="addTankFilter.php">Add A Filter for Tank</a>
+					<br><a href="deleteTankFilter.php">Delete A Filter for Tank</a>
 					<br>
 					<br><a href="habitat.php">Display All Habitats</a>
+					<br><a href="livesIn.php">Display All Habitats connected to an Animal</a>
 					<br><a href="bowl.php">Display All Bowls</a>
         			<br><a href="cage.php">Display All Cages</a>
         			<br><a href="tank.php">Display All Tanks</a>
 					<br><a href="addHabitat.php">Add a Habitat</a>
 					<br><a href="editHabitat.php">Edit A Habitat</a>
 					<br><a href="deleteHabitat.php">Delete A Habitat</a>
+					<br><a href="addLivesIn.php">Add a Animal to a Habitat</a>
+					<!-- <br><a href="deleteLivesIn.php">Delete an Animal from a Habitat</a> -->
         		</div>
         	</div>
         		

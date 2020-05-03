@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Add New Filter for Tank</h1>
+		<h1>Add New Animal to Habitat</h1>
 	
         <?php
         
@@ -36,19 +36,19 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            echo "<form method='post' action='addTankFilter.php'>";
+            echo "<form method='post' action='addLivesIn.php'>";
             echo "<table>";
             echo "<tbody>";
             
-            $stmt = $conn->prepare('select SN, light, substrate from Tank order by SN;');
+            $stmt = $conn->prepare('select classification,diet_type from Animal order by classification;');
             $stmt->execute();
             
             // get all tanks
-            echo "<tr><td>Tank</td><td>";
-            echo "<select name='tank'>";
+            echo "<tr><td>Animal</td><td>";
+            echo "<select name='animal'>";
             
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: Substrate: $row[substrate] Light: $row[light]</option>";
+                echo "<option value='$row[classification]'>$row[classification]: Diet Type: $row[diet_type] </option>";
             }
             
             echo "</select>";
@@ -56,14 +56,14 @@
 
             echo "<tr><td>Filter</td><td>";
             
-            $stmt = $conn->prepare('select SN,type_of,brand,size from Filter order by SN;');
+            $stmt = $conn->prepare('select SN,volume,capacity,price from Habitat order by SN;');
             $stmt->execute();
             
             // get all filters
             echo "<select name='filter'>";
             
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: $row[type_of] filter from $row[brand] size: $row[size]</option>";
+                echo "<option value='$row[SN]'>$row[SN]: Volume: $row[volume] Capacity: $row[capacity] Price: $row[price]</option>";
             }
             
             echo "</select>";
@@ -83,14 +83,14 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Tank_Filter values (:tank,:filter);");
+                $stmt = $conn->prepare("insert into Lives_In values (:animal,:habitat);");
                 
-                $stmt->bindValue(':tank', $_POST['tank']);
-                $stmt->bindValue(':filter', $_POST['filter']);
+                $stmt->bindValue(':animal', $_POST['animal']);
+                $stmt->bindValue(':habitat', $_POST['habitat']);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Tank Filter usage record.";
+                echo "Successfully added new Animal Lives In Habitat record.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
