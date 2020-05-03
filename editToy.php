@@ -106,7 +106,7 @@
             try {
                 
                 // update Toy with edits
-                $stmt = $conn->prepare("update Toy type_of = :type_of, set brand = :brand, price = :price, quantity = :quantity, animal = :animal where SN = :SN;");
+                $stmt = $conn->prepare("update Toy set type_of = :type_of, brand = :brand, price = :price, quantity = :quantity, animal = :animal where SN = :SN;");
                 
                 $stmt->bindValue(':SN', $_SESSION["editToy_SN"]);
                 $stmt->bindValue(':type_of', $_POST['type_of']);
