@@ -67,6 +67,9 @@
             $stmt->execute();
 
             // $type = $_GET["type"];
+            echo "<form method='get'>";
+            echo "Select an Habitat:  ";
+            
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
