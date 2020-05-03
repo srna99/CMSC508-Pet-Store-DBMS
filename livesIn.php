@@ -32,7 +32,7 @@
         require_once ('connection.php');
         
         // get all usage history
-        $stmt = $conn->prepare('select animal,habitat from Lives_In order by filter;');
+        $stmt = $conn->prepare('select animal,habitat from Lives_In order by animal,habitat;');
         $stmt->execute();
         
         // make table
