@@ -193,11 +193,12 @@
                 // update Habitat with edits
                 $stmt = $conn->prepare("update Habitat set volume = :volume, capacity = :capacity, price = :price, quantity = :quantity where SN = :SN;");
                 
-                $stmt->bindValue(':SN', trim($_POST['editHabitat_SN']));
+                //$stmt->bindValue(':SN', trim($_POST['editHabitat_SN']));
                 $stmt->bindValue(':volume', trim($_POST['volume']));
                 $stmt->bindValue(':capacity', $_SESSION["capacity"]);
                 $stmt->bindValue(':price', $_POST['price']);
                 $stmt->bindValue(':quantity', $_POST['quantity']);
+                $stmt->bindValue(':SN', $_SESSION["editHabitat_SN"]);
                 
                 
                 $stmt->execute();
