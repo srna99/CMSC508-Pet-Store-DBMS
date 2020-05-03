@@ -71,7 +71,7 @@
                 // delete from table
                 $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank,filter = :filter;");
                 
-                $stmt->bindValue(':tank', $_POST['tank']);
+                $stmt->bindValue(':tankfilter', $_POST['tankfilter']);
                 //$stmt->bindValue(':filter', $_POST['filter']);
                 
                 $stmt->execute();
