@@ -44,7 +44,7 @@
             $stmt->execute();
             
             // get all tanks
-            echo "<tr>Tank<td></td><td>";
+            echo "<tr><td>Tank</td><td>";
             echo "<select name='tank'>";
             
             while ($row = $stmt->fetch()) {
