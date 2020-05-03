@@ -1,3 +1,16 @@
+<?php
+// Code from https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
+
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+?>
+
 <html>
     <head>
     	<title>CMSC 508 Pet Store DBMS</title>
@@ -6,7 +19,7 @@
     	    #content {
                 max-width: 800px;
                 margin: auto;
-                padding-bottom: 100px;
+                padding-bottom: 50px;
                 display: flex;
             }
             
@@ -38,10 +51,21 @@
                 display: inline-block;
                 margin-bottom: 5px;
             }
+            
+            #logout {
+                display: block;
+                text-align: right;
+                max-width: 650px;
+                margin: auto;
+                padding-top: 10px;
+                padding-right: 10px;
+            }
     	</style>
     </head>
     
     <body>
+    	<a href="logout.php" id="logout">Log Out</a>
+    	
     	<h1>Pet Store DBMS</h1>
     	
     	<div id="content">
