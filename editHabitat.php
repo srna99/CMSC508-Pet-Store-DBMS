@@ -46,6 +46,7 @@
             echo "<form method='get'>";
             echo "Select an Habitat:  ";
             
+            
             // make dropdown menu for Habitat
             echo "<select name='type' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat type -- </option>";
@@ -69,8 +70,6 @@
             $stmt->execute();
 
             $type = $_GET["type"];
-
-            $SN = $_GET["SN"];
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
@@ -104,7 +103,7 @@
         // second page - form
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            //$SN = $_GET["SN"];
+            $SN = $_GET["SN"];
             
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
