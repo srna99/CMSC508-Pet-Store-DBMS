@@ -37,30 +37,6 @@
         session_start();
         
         // first page
-        // if (!isset($_GET['type']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
-            
-        //     // $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
-        //     // $stmt->execute();
-            
-        //     // select a Habitat to get to current related info
-        //     echo "<form method='get'>";
-        //     echo "Select an Habitat:  ";
-            
-            
-        //     // make dropdown menu for Habitat
-        //     echo "<select name='type' onchange='this.form.submit();'>";
-        //     echo "<option disabled selected value> -- select an Habitat type -- </option>";
-        //     echo "<option value='Bowl'>Bowl</option>";
-        //     echo "<option value='Cage'>Cage</option>";
-        //     echo "<option value='Tank'>Tank</option>";
-            
-        //     $_SESSION["editHabitat_habitat_type"] = $type;
-
-        //     echo "</select>";
-        //     echo "</form>";
-        //     exit();
-            
-        // }
         if(!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
             $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,light,IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,opening_diameter,type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
@@ -69,7 +45,7 @@
             // $type = $_GET["type"];
             echo "<form method='get'>";
             echo "Select an Habitat:  ";
-            
+
             echo "<select name='SN' onchange='this.form.submit();'>";
             echo "<option disabled selected value> -- select an Habitat -- </option>";
      
@@ -96,7 +72,7 @@
             //     }
             // }
 
-            $_SESSION["editHabitat_SN"] = $SN; 
+            //$_SESSION["editHabitat_SN"] = $SN; 
 
             echo "</select>";
             echo "</form>";
