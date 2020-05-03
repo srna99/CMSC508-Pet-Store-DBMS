@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Delete Tank-Filter Connection</h1>
+		<h1>Delete Animal to Habitat Connection</h1>
 	
         <?php
         
@@ -35,19 +35,19 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            $stmt = $conn->prepare('select tank,filter from Tank_Filter order by tank,filter;');
+            $stmt = $conn->prepare('select animal,habitat from Lives_In order by animal,habitat;');
             $stmt->execute();
             
-            echo "<form method='post' action='deleteTankFilter.php'>";
+            echo "<form method='post' action='deleteLivesIn.php'>";
             echo "<table>";
             echo "<tbody>";
 
             echo "<tr><td>Tank Filter</td><td>";
             // make dropdown menu
-            echo "<select name='tankfilter'>";
-            echo "<option disabled selected value> -- select tank and filter -- </option>";
+            echo "<select name='livesIn'>";
+            echo "<option disabled selected value> -- select Lives in -- </option>";
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[tank] $row[filter]'>Tank: $row[tank] Filter: $row[filter] </option>";
+                echo "<option value='$row[animal] $row[habitat]'>Animal: $row[animal] Habitat: $row[habitat] </option>";
             }
             
             echo "</select>";
@@ -65,12 +65,12 @@
             try {
                 
                 // delete from table
-                $stmt = $conn->prepare("delete from Tank_Filter where tank = :tank and filter = :filter;");
+                $stmt = $conn->prepare("delete from Lives_In where animal = :animal and habitat = :habitat;");
                 
-                $tank_filter = explode(" ", $_POST['tankfilter']);
+                $Lives_in = explode(" ", $_POST['livesIn']);
 
-                $stmt->bindValue(':tank', $tank_filter[0]);
-                $stmt->bindValue(':filter', $tank_filter[1]);
+                $stmt->bindValue(':animal', $Lives_in[0]);
+                $stmt->bindValue(':habitat', $Lives_in[1]);
                 
                 $stmt->execute();
                 
