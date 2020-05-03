@@ -128,6 +128,7 @@
         			<br><a href="cage.php">Display All Cages</a>
         			<br><a href="tank.php">Display All Tanks</a>
 					<br><a href="addHabitat.php">Add a Habitat</a>
+					<br><a href="editHabitat.php">Edit A Habitat</a>
 					<br><a href="deleteHabitat.php">Delete A Habitat</a>
         		</div>
         	</div>
