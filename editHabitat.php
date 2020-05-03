@@ -37,9 +37,9 @@
         session_start();
         
         // first page
-        if (!isset($_GET['SN']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
+        if (!isset($_GET['type']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
             
-            $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,light,IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,opening_diameter,type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
+            $stmt = $conn->prepare('select Habitat.SN, volume, capacity, price, quantity,IFNULL(light,"N/A"),IFNULL(NULLIF(concat(IFNULL(Bowl.substrate,""),IFNULL(Tank.substrate,"")),""),"No Substrate") as substrate,IFNULL(opening_diameter,"N/A"),type_of from Habitat Left join Bowl on Habitat.SN = Bowl.SN left join Tank on Habitat.SN = Tank.SN left join Cage on Habitat.SN = Cage.SN group by SN order by SN;');
             $stmt->execute();
             
             // select a Habitat to get to current related info
@@ -47,35 +47,37 @@
             echo "Select an Habitat:  ";
             
             // make dropdown menu for Habitat
-            echo "<select name='SN' onchange='this.form.submit();'>";
+            echo "<select name='type' onchange='this.form.submit();'>";
+            echo "<option disabled selected value> -- select an Habitat type -- </option>";
+            echo "<option value='Bowl'>Bowl</option>";
+            echo "<option value='Cage'>Cage</option>";
+            echo "<option value='Tank'>Tank</option>";
+            
             echo "<option disabled selected value> -- select an Habitat -- </option>";
 
             // show info from query
-            while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
+            // while ($row = $stmt->fetch()) {
+            //     echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] Light SN: $row[light] Opening Diameter: $row[opening_diameter]</option>";
+            // }
+
+            if($type == "Bowl"){
+                while ($row = $stmt->fetch()) {
+                    echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+                }
             }
 
-            // if($row[type_of]!=null){
-            //     while ($row = $stmt->fetch()) {
-            //         echo "<option value='$row[SN]'>$row[type_of] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-            //     }
-            // }
+            if($type == "Cage"){
+                while ($row = $stmt->fetch()) {
+                    echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+                }
+            }
 
-            // if($row[light]!=null){
-            //     while ($row = $stmt->fetch()) {
-            //         echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-            //     }
-            // }
-
-            // if($row[opening_diameter]!=null){
-            //     while ($row = $stmt->fetch()) {
-            //         echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
-            //     }
-            // }
+            if($type == "Tank"){
+                while ($row = $stmt->fetch()) {
+                    echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+                }
+            }
             
-            // while ($row = $stmt->fetch()) {
-            //     echo "<option value='$row[SN]'>Volume: $row[volume] Capacity: $row[capacity] Price: $row[price]</option>";
-            // }
             
             echo "</select>";
             echo "</form>";
@@ -87,7 +89,7 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             $SN = $_GET["SN"];
-            $type = $_GET["habitat_type"];
+            $type = $_GET["type"];
             // get related info from pk
             $stmt = $conn->prepare('select SN, volume, capacity, price, quantity from Habitat where SN = :SN;');
             $stmt->bindValue(':SN', $SN);
