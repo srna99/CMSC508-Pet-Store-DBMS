@@ -79,17 +79,18 @@
 
             if($type == "Cage"){
                 while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+                    echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
                 }
             }
 
             if($type == "Tank"){
                 while ($row = $stmt->fetch()) {
-                    echo "<option value='$row[SN]'>Opening Diameter: $row[opening_diameter] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
+                    echo "<option value='$row[SN]'>Light SN: $row[light] Volume: $row[volume] Capacity: $row[capacity] Price: $row[price] </option>";
                 }
             }
             
-            
+            echo "<tr><td></td><td><input type='submit' value='Submit'></td></tr>";
+
             echo "</select>";
             echo "</form>";
             exit();

@@ -105,7 +105,7 @@
                 $stmt = $conn->prepare('select SN, brand, size from Light order by SN;');
                 $stmt->execute();
                 
-                // make dropdown menu for manager
+                // make dropdown menu for light
                 echo "<tr><td>Light</td><td>";
                 echo "<select name='light'>";
                 
