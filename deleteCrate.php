@@ -40,7 +40,7 @@
             echo "<form method='post' action='deleteCrate.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Serial Number</td><td>";
+            echo "<tr><td>Select a Crate</td><td>";
            
             // make dropdown menu
             echo "<select name='SN'>";
