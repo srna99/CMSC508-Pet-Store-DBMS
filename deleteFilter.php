@@ -40,7 +40,7 @@
             echo "<form method='post' action='deleteFilter.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Filter</td><td>";
+            echo "<tr><td>Select a Filter</td><td>";
            
             // make dropdown menu
             echo "<select name='SN'>";

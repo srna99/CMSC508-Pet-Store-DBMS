@@ -40,7 +40,7 @@
             echo "<form method='post' action='deleteLight.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Light</td><td>";
+            echo "<tr><td>Select a Light</td><td>";
            
             // make dropdown menu
             echo "<select name='SN'>";

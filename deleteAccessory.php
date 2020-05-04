@@ -40,7 +40,7 @@
             echo "<form method='post' action='deleteAccessory.php'>";
             echo "<table>";
             echo "<tbody>";
-            echo "<tr><td>Serial Number</td><td>";
+            echo "<tr><td>Select an Accessory</td><td>";
            
             // make dropdown menu
             echo "<select name='SN'>";

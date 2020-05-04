@@ -42,7 +42,7 @@
             echo "<table>";
             echo "<tbody>";
 
-            echo "<tr><td>Tank Filter</td><td>";
+            echo "<tr><td>Lives In</td><td>";
             // make dropdown menu
             echo "<select name='livesIn'>";
             echo "<option disabled selected value> -- select Lives in -- </option>";
