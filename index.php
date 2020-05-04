@@ -155,6 +155,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 					<br>
 					<br><a href="habitat.php">Display All Habitats</a>
 					<br><a href="livesIn.php">Display All Habitats connected to an Animal</a>
+					<br><a href="decorates.php">Display All Decor connected to an Habitat</a>
 					<br><a href="bowl.php">Display All Bowls</a>
         			<br><a href="cage.php">Display All Cages</a>
         			<br><a href="tank.php">Display All Tanks</a>
@@ -163,6 +164,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 					<br><a href="deleteHabitat.php">Delete A Habitat</a>
 					<br><a href="addLivesIn.php">Add a Animal to a Habitat</a>
 					<br><a href="deleteLivesIn.php">Delete an Animal from a Habitat</a>
+					<br><a href="addDecorates.php">Add a Decor to a Habitat</a>
+					<br><a href="deleteDecorates.php">Delete an Decor from a Habitat</a>
         		</div>
         	</div>
         		
