@@ -26,7 +26,7 @@
 	
 	<body>
 		
-		<h1>Add New Animal to Habitat</h1>
+		<h1>Add New Decor for Habitat</h1>
 	
         <?php
         
@@ -36,23 +36,9 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            echo "<form method='post' action='addLivesIn.php'>";
+            echo "<form method='post' action='addDecorates.php'>";
             echo "<table>";
             echo "<tbody>";
-            
-            $stmt = $conn->prepare('select classification,diet_type from Animal order by classification;');
-            $stmt->execute();
-            
-            // get all animals
-            echo "<tr><td>Animal</td><td>";
-            echo "<select name='animal'>";
-            
-            while ($row = $stmt->fetch()) {
-                echo "<option value='$row[classification]'>$row[classification]: Diet Type: $row[diet_type] </option>";
-            }
-            
-            echo "</select>";
-            echo "</td></tr>";
 
             echo "<tr><td>Habitat</td><td>";
             
@@ -64,6 +50,20 @@
             
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[SN]'>$row[SN]: Volume: $row[volume] Capacity: $row[capacity] Price: $row[price]</option>";
+            }
+            
+            echo "</select>";
+            echo "</td></tr>";
+
+            $stmt = $conn->prepare('select SN,type_of,price,animal from Decor order by SN;');
+            $stmt->execute();
+            
+            // get all Decor
+            echo "<tr><td>Decor</td><td>";
+            echo "<select name='decor'>";
+            
+            while ($row = $stmt->fetch()) {
+                echo "<option value='$row[SN]'>$row[type_of]: for $row[animal] Price: $row[price] </option>";
             }
             
             echo "</select>";
@@ -83,14 +83,14 @@
             try {
                 
                 // insert into table
-                $stmt = $conn->prepare("insert into Lives_In values (:animal,:habitat);");
+                $stmt = $conn->prepare("insert into Decorates values (:habitat,:decor);");
                 
-                $stmt->bindValue(':animal', $_POST['animal']);
                 $stmt->bindValue(':habitat', $_POST['habitat']);
+                $stmt->bindValue(':decor', $_POST['decor']);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Animal Lives In Habitat record.";
+                echo "Successfully added new Decor For Habitat record.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();

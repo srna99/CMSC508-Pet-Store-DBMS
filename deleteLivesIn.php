@@ -74,7 +74,7 @@
                 
                 $stmt->execute();
                 
-                echo "Successfully deleted Bedding.";
+                echo "Successfully deleted Lives In Entry.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();

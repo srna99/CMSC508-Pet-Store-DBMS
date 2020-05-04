@@ -26,50 +26,32 @@
 	
 	<body>
 		
-		<h1>Add New Animal to Habitat</h1>
+		<h1>Delete Decor for Habitat</h1>
 	
         <?php
         
         require_once ('connection.php');
-        
-        // first page
+
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            echo "<form method='post' action='addLivesIn.php'>";
+            $stmt = $conn->prepare('select decor,habitat from Decor order by decor,habitat;');
+            $stmt->execute();
+            
+            echo "<form method='post' action='deleteDecorates.php'>";
             echo "<table>";
             echo "<tbody>";
-            
-            $stmt = $conn->prepare('select classification,diet_type from Animal order by classification;');
-            $stmt->execute();
-            
-            // get all animals
-            echo "<tr><td>Animal</td><td>";
-            echo "<select name='animal'>";
-            
-            while ($row = $stmt->fetch()) {
-                echo "<option value='$row[classification]'>$row[classification]: Diet Type: $row[diet_type] </option>";
-            }
-            
-            echo "</select>";
-            echo "</td></tr>";
 
-            echo "<tr><td>Habitat</td><td>";
-            
-            $stmt = $conn->prepare('select SN,volume,capacity,price from Habitat order by SN;');
-            $stmt->execute();
-            
-            // get all habitats
-            echo "<select name='habitat'>";
-            
+            echo "<tr><td>Tank Filter</td><td>";
+            // make dropdown menu
+            echo "<select name='Decor'>";
+            echo "<option disabled selected value> -- select decor for habitat -- </option>";
             while ($row = $stmt->fetch()) {
-                echo "<option value='$row[SN]'>$row[SN]: Volume: $row[volume] Capacity: $row[capacity] Price: $row[price]</option>";
+                echo "<option value='$row[habitat] $row[decor]'>Habitat: $row[habitat] decor: $row[decor]</option>";
             }
             
             echo "</select>";
             echo "</td></tr>";
-            
-            
             
             // submit form button
             echo "<tr><td></td><td><input type='submit' value='Submit'></td></tr>";
@@ -82,15 +64,17 @@
             
             try {
                 
-                // insert into table
-                $stmt = $conn->prepare("insert into Lives_In values (:animal,:habitat);");
+                // delete from table
+                $stmt = $conn->prepare("delete from Decor where habitat = :habitat and decor = :decor;");
                 
-                $stmt->bindValue(':animal', $_POST['animal']);
-                $stmt->bindValue(':habitat', $_POST['habitat']);
+                $Decor = explode(" ", $_POST['Decor']);
+
+                $stmt->bindValue(':habitat', $Decor[0]);
+                $stmt->bindValue(':decor', $Decor[1]);
                 
                 $stmt->execute();
                 
-                echo "Successfully added new Animal Lives In Habitat record.";
+                echo "Successfully deleted decor Entry.";
                 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
