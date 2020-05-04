@@ -35,16 +35,16 @@
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             
             // make fill-in form
-            $stmt = $conn->prepare('select decor,habitat from Decor order by decor,habitat;');
+            $stmt = $conn->prepare('select habitat,decor from Decorates order by decor,habitat;');
             $stmt->execute();
             
             echo "<form method='post' action='deleteDecorates.php'>";
             echo "<table>";
             echo "<tbody>";
 
-            echo "<tr><td>Tank Filter</td><td>";
+            echo "<tr><td>Decorates</td><td>";
             // make dropdown menu
-            echo "<select name='Decor'>";
+            echo "<select name='Decorates'>";
             echo "<option disabled selected value> -- select decor for habitat -- </option>";
             while ($row = $stmt->fetch()) {
                 echo "<option value='$row[habitat] $row[decor]'>Habitat: $row[habitat] decor: $row[decor]</option>";
@@ -65,9 +65,9 @@
             try {
                 
                 // delete from table
-                $stmt = $conn->prepare("delete from Decor where habitat = :habitat and decor = :decor;");
+                $stmt = $conn->prepare("delete from Decorates where habitat = :habitat and decor = :decor;");
                 
-                $Decor = explode(" ", $_POST['Decor']);
+                $Decor = explode(" ", $_POST['Decorates']);
 
                 $stmt->bindValue(':habitat', $Decor[0]);
                 $stmt->bindValue(':decor', $Decor[1]);
